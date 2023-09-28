@@ -80,9 +80,15 @@ class TruckRollExtendedCalculation {
         return this.avgTruckRollDistance*this.costPerDistance
     } 
 
-    get result_cost_nff(){
+    get cost_nff(){
         return this.noFaultFoundRate * this.total_cost
     } 
+
+    get result_cost_nff(){
+        return this.cost_nff >= 100000 ? (this.cost_nff/1000).toFixed(0)+" k" : this.cost_nff
+    } 
+
+
     get result_total_distance_per_year(){
         return this.numTruckRolls * this.avgTruckRollDistance * 12
     } 

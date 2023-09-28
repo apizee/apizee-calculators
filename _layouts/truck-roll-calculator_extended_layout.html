@@ -25,8 +25,8 @@
                             <label for="num-truck-rolls">{{page.nbTruckrollLabel}}:</label>
                             <div class="input-group">
                                 <input type="number" class="form-control" id="num-truck-rolls" name="num-truck-rolls"
-                                    placeholder="{{page.nbTruckrollExample}}" aria-describedby="truckRollsHelp"
-                                    value="" min="0" required>
+                                    placeholder="{{page.nbTruckrollExample}}" aria-describedby="truckRollsHelp" value=""
+                                    min="0" required>
                             </div>
                             <div class="invalid-feedback">
                                 {{page.errorMsgGTZero}}
@@ -34,7 +34,7 @@
                             <small id="truckRollsHelp" class="form-text text-muted">{{page.nbTruckrollHint}}</small>
 
                         </div>
-                        
+
                         <div class="row">
                             <label for="cost-per-distance">{{page.costPerDistanceLabel}}:</label>
                             <div class=" input-group">
@@ -70,8 +70,8 @@
                             <label for="avg-truck-roll-distance">{{page.avgTruckRollDurationLabel}}:</label>
 
                             <div class="input-group">
-                                <span class="input-group-text"
-                                    id="inputGroup-truck-troll-duration"><i class="fa-regular fa-hourglass-half"></i></span>
+                                <span class="input-group-text" id="inputGroup-truck-troll-duration"><i
+                                        class="fa-regular fa-hourglass-half"></i></span>
                                 <input type="number" class="form-control" id="avg-truck-roll-duration"
                                     name="avg-truck-roll-duration" placeholder="{{page.avgTruckRollDurationExample}}"
                                     min="0" step="0.5" aria-describedby="avgTruckRollDurationHelp" value="" required>
@@ -85,8 +85,8 @@
                         <div class="row">
                             <label for="num-technicians">{{page.numTechniciansLabel}}:</label>
                             <div class="input-group">
-                                <span class="input-group-text"
-                                    id="inputGroup-truck-troll-technicians"><i class="fa-regular fa-user"></i></span>
+                                <span class="input-group-text" id="inputGroup-truck-troll-technicians"><i
+                                        class="fa-regular fa-user"></i></span>
                                 <input type="number" class="form-control" id="num-technicians" name="num-technicians"
                                     min="0" placeholder="{{page.numTechniciansExample}}"
                                     aria-describedby="numTechniciansHelp" value="" min="0" required>
@@ -142,15 +142,23 @@
                         <p class="result-section-title">{{page.total_cost_per_year_label}}</p>
                         <p class="result-value">
                             <span class="pre-unit">{{page.currencyUnitPre}}</span>
-                            <span class="value"><span class="generated" id="result_total_cost"></span>{{page.total_cost_per_year_kilo}}</span>
+                            <span class="value"><span class="generated"
+                                    id="result_total_cost"></span>{{page.total_cost_per_year_kilo}}</span>
                             <span class="post-unit">{{page.total_cost_per_year_unit}}</span>
                         </p>
                     </div>
                     <div class="row result-hypothesis">
-                        <p><span id="hypothesis">For <span class="generated" id="hypothesis_truckroll_per_month"></span> truck rolls per month of an average distance of <span class="generated" id="hypothesis_avg_truckroll_distance"></span>{{page.distanceUnit}} with an
-                                average cost of {{page.currencyUnitPre}}<span class="generated" id="hypothesis_cost_km_truckroll"></span>{{page.currencyUnitPost}}/{{page.distanceUnit}}. Department of <span class="generated" id="hypothesis_num_technicians"></span> technician(s) with an average NFF of <span class="generated" id="hypothesis_NFF"></span>%.</span>
-                           <small> <i class="fa-solid fa-circle-info" data-bs-toggle="collapse" href="#market-figures-div"
-                                role="button" aria-expanded="false" aria-controls="market-figures-div"></i></small>
+                        <p><span id="hypothesis">For <span class="generated" id="hypothesis_truckroll_per_month"></span>
+                                truck rolls per month of an average distance of <span class="generated"
+                                    id="hypothesis_avg_truckroll_distance"></span>{{page.distanceUnit}} with an
+                                average cost of {{page.currencyUnitPre}}<span class="generated"
+                                    id="hypothesis_cost_km_truckroll"></span>{{page.currencyUnitPost}}/{{page.distanceUnit}}.
+                                Department of <span class="generated" id="hypothesis_num_technicians"></span>
+                                technician(s) with an average NFF of <span class="generated"
+                                    id="hypothesis_NFF"></span>%.</span>
+                            <small> <i class="fa-solid fa-circle-info" data-bs-toggle="collapse"
+                                    href="#market-figures-div" role="button" aria-expanded="false"
+                                    aria-controls="market-figures-div"></i></small>
                         </p>
                         <div class="collapse" id="market-figures-div">
                             <small>{{page.market_hypothesis_co2factor}}
@@ -213,7 +221,7 @@
                                     <span class="post-unit">{{page.currencyUnitPost}}</span>
                                 </p>
                                 <p class="result-data-title">{{page.estimated_savings_label}}</p>
-                            
+
                             </div>
 
                             <!-- Fewer truck rolls per year -->
@@ -257,35 +265,36 @@
 
     <script src="{{site.baseurl}}/assets/js/truck-roll-extended-script.js" type="module"></script>
 
-<script>
+    <script>
         document.getElementById("share-link").addEventListener("click", function (e) {
             e.preventDefault();
             var shareIcons = document.getElementById("share-icons");
             shareIcons.style.display = shareIcons.style.display === "none" ? "block" : "none";
         });
 
+        
+        // // JavaScript for disabling form submissions if there are invalid fields
+        // (function () {
+        //     'use strict'
 
-        // JavaScript for disabling form submissions if there are invalid fields
-        (function () {
-            'use strict'
+        //     // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        //     var forms = document.querySelectorAll('.needs-validation')
 
-            // Fetch all the forms we want to apply custom Bootstrap validation styles to
-            var forms = document.querySelectorAll('.needs-validation')
+        //     // Loop over them and prevent submission
+        //     Array.prototype.slice.call(forms)
+        //         .forEach(function (form) {
+        //             form.addEventListener('submit', function (event) {
+        //                 if (!form.checkValidity()) {
+        //                     event.preventDefault()
+        //                     //event.stopPropagation()
+        //                 }
 
-            // Loop over them and prevent submission
-            Array.prototype.slice.call(forms)
-                .forEach(function (form) {
-                    form.addEventListener('submit', function (event) {
-                        if (!form.checkValidity()) {
-                            event.preventDefault()
-                            event.stopPropagation()
-                        }
+        //                 form.classList.add('was-validated')
 
-                        form.classList.add('was-validated')
+        //             }, false)
+        //         })
+        // })()
 
-                    }, false)
-                })
-        })()
 
     </script>
 </body>
