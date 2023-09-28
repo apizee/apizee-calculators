@@ -4,73 +4,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" type="image/png" sizes="16x16" href="{{site.baseurl}}/assets/images/favicon/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{site.baseurl}}/assets/images/favicon/favicon-32x32.png">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Figtree" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="{{site.baseurl}}/assets/css/truckroll_style.css">
 
     <title>{{page.title}}</title>
-    <style>
-        body,
-        h1,
-        h3 {
-            font-family: 'FigTree', sans-serif;
-        }
-
-        h1 {
-            font-weight: bolder;
-        }
-
-        .row {
-            margin-bottom: 10px;
-        }
-
-        .primary-color {
-            color: rgb(235, 62, 10);
-        }
-
-        .primary-bg-color {
-            background-color: rgb(235, 62, 10);
-            color: white;
-        }
-
-        .container-box {
-            max-width: 500px;
-            margin: auto;
-        }
-
-        .text-right {
-            text-align: right;
-        }
-
-        .form-row>div {
-            flex: 1;
-        }
-
-        .share-icons i,
-        #share-link {
-            color: rgb(235, 62, 10);
-        }
-
-        .logo {
-            width: 100px;
-            margin-bottom: 10px;
-        }
-
-        .error-input {
-            border-color: red;
-        }
-
-        a, a:hover{
-            color : #6c757d
-        }
-
-    </style>
 </head>
 
 <body>
     <div class="container container-box">
-        <img src="/assets/images/logo-apizee.png" alt="Apizee Logo" class="logo">
+        <img src="{{site.baseurl}}/assets/images/logo-apizee.png" alt="Apizee Logo" class="logo">
 
         <h1 class="text-right primary-color">{{page.calculatorTitle}}</h1>
         <div id="results" class="primary-bg-color p-3 text-right rounded" aria-live="polite"></div>
@@ -92,7 +41,7 @@
                     <small id="rateServiceCallResolutionExample" class="form-text text-muted">{{page.rateServiceCallResolutionHint}}</small>
                 </div>
             </div>
-            <a class="btn btn-primary">Calculate</a>
+            <a class="btn btn-primary primary-bg-color">Calculate</a>
 
         </form>
         <div id="error-message" class="mt-4 text-danger text-right"></div>

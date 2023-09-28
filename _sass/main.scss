@@ -1,3 +1,4 @@
+$app-width: 100% !default;
 $baseurl: "" !default;
 $font-stack: Helvetica, sans-serif;
 $primary-color: #EB3E0A;
@@ -6,7 +7,7 @@ $tertiary-color: #FDF3E8;
 $dark: #000;
 $light-dark: #555;
 $light-light-dark: #DDD;
-$app-width: 800px;
+
 
 
  @font-face {
@@ -38,6 +39,7 @@ h1 {
 .primary-bg-color {
     background-color: $primary-color;
     color: white;
+    border: 0px;
 }
 
 .container-box {

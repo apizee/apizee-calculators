@@ -1,0 +1,9 @@
+--- 
+title: CSS Stylesheet for Simple truckroll calculator
+--- 
+
+
+@use "main" with (
+    $baseurl: "{{site.baseurl}}",
+    $app-width: 500px
+  );

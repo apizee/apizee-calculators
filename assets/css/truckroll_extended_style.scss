@@ -4,24 +4,9 @@ title: CSS Stylesheet
 
 
 @use "main" with (
-    $baseurl: "{{site.baseurl}}"
+    $baseurl: "{{site.baseurl}}",
+    $app-width: 1200px
   );
-
-.container-box {
-    max-width: 1200px;
-}
-
-// .intro {
-//     h1 {
-//         text-align: center;
-//     }
-
-//     p {
-//         font-size: 1.2em;
-//         color: main.$light-dark;
-//     }
-
-// }
 
 .truck-roll-input{
     border-radius: 15px;
