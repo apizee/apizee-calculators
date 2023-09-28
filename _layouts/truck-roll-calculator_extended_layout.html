@@ -251,7 +251,9 @@
                         <p class="result-data-title">{{page.apizee_payback_label}}</p>
                         <p class="result-value m-0">
                             <span class="value generated" id="result_breakeven"></span>
-                            <span class="post-unit">{{page.payback_time_unit_weeks}}</span>
+                            <span id="breakeven-unit-weeks" class="post-unit weeks collapse">{{page.payback_time_unit_weeks}}</span>
+                            <span id="breakeven-unit-months" class="post-unit months collapse">{{page.payback_time_unit_months}}</span>
+                            <span id="breakeven-unit-days" class="post-unit days collapse">{{page.payback_time_unit_days}}</span>
                         </p>
                     </div>
 
@@ -273,28 +275,10 @@
         });
 
         
-        // // JavaScript for disabling form submissions if there are invalid fields
-        // (function () {
-        //     'use strict'
-
-        //     // Fetch all the forms we want to apply custom Bootstrap validation styles to
-        //     var forms = document.querySelectorAll('.needs-validation')
-
-        //     // Loop over them and prevent submission
-        //     Array.prototype.slice.call(forms)
-        //         .forEach(function (form) {
-        //             form.addEventListener('submit', function (event) {
-        //                 if (!form.checkValidity()) {
-        //                     event.preventDefault()
-        //                     //event.stopPropagation()
-        //                 }
-
-        //                 form.classList.add('was-validated')
-
-        //             }, false)
-        //         })
-        // })()
-
+        //Init on load
+        window.addEventListener("load", (event) => {
+            window.populateTruckRollCosts('{{page.lang}}')
+        });
 
     </script>
 </body>

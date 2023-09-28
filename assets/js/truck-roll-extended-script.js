@@ -1,6 +1,6 @@
 import TruckRollExtendedCalculation from "./truck-roll-extended-calculation-module.js";
 
-function CalculateTruckRollCosts() {
+function populateTruckRollCosts(lang) {
     'use strict'
 
     // State expected input id to be found in the HTML DOM
@@ -14,12 +14,18 @@ function CalculateTruckRollCosts() {
 
     let queryString = ""
 
+    let searchParams = new URLSearchParams(location.search)
+
     //Retrieve the value of all the input elements specified in the expectedInput array
     expectedInput.forEach((input, index) =>{
 
         // If no value found, take the default value
         if($("#"+input.id).val() == ""){
-            $("#"+input.id).val(input.defaultValue)
+            if(!searchParams.has(input.id)) {
+                $("#"+input.id).val(input.defaultValue)
+            } else {
+                $("#"+input.id).val(searchParams.get(input.id))
+            }
         }
 
         //Store the expectedInput array with the value 
@@ -45,24 +51,56 @@ function CalculateTruckRollCosts() {
         var id = $(this).attr("id");
 
         if (calculationModule[id] != undefined) {
-            $("#" + id).text(calculationModule[id].toLocaleString('en-US'))
+
+            //Adapt the time unit (days, weeks, months) depending on the value returned
+            if(id === 'result_breakeven'){
+                document.getElementById("breakeven-unit-weeks").classList.remove("show")
+                document.getElementById("breakeven-unit-months").classList.remove("show")
+                document.getElementById("breakeven-unit-days").classList.remove("show")
+                document.getElementById("breakeven-unit-weeks").classList.add("collapse")
+                document.getElementById("breakeven-unit-months").classList.add("collapse")
+                document.getElementById("breakeven-unit-days").classList.add("collapse")
+
+                let value = calculationModule.result_breakeven
+                let result = ""
+
+                if (value > 30) {
+                    result = (value/30).toFixed(0)
+                    document.getElementById("breakeven-unit-months").classList.add("show")
+                } else if(value > 7){
+                    result = (value/7).toFixed(0)
+                    document.getElementById("breakeven-unit-weeks").classList.add("show")
+                } else {
+                    result = value.toFixed(0)
+                    document.getElementById("breakeven-unit-days").classList.add("show")
+                }
+
+                $("#" + id).text(result.toLocaleString(lang))
+
+            } else {            
+                $("#" + id).text(calculationModule[id].toLocaleString(lang))
+            }
+
         } else {
-            console.log("get " + id + "(){}")
+            throw Error("Missing result in calculation class :" + id)
         }
     });
 }
 
-
+// Event handler on for submit
 let form = document.getElementById("truck-roll-form")
 form.addEventListener('submit', event => {
+
+    //Use bootstrap validation mecanism
     if (form.checkValidity()) {
         form.classList.add('was-validated')
-        CalculateTruckRollCosts()
-    }            
+        populateTruckRollCosts()
+    }
 
     event.preventDefault()
     event.stopPropagation()
 
 })
 
-CalculateTruckRollCosts()
+
+window.populateTruckRollCosts = populateTruckRollCosts

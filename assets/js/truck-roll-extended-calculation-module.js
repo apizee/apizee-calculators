@@ -19,7 +19,6 @@ class TruckRollExtendedCalculation {
             
                 case 'num-truck-rolls': 
                     this.numTruckRolls= input.currentValue
-                    console.log(this.numTruckRolls)
                     break;
                 case 'cost-per-distance': 
                     this.costPerDistance = input.currentValue
@@ -138,16 +137,20 @@ class TruckRollExtendedCalculation {
     get result_co2_avoided(){
         return (this.savings_truck_rolls * this.avgTruckRollDistance * TruckRollExtendedCalculation.CO2_EMISSION_FACTOR/1000/1000).toFixed(1)
     } 
+
+    /**
+     * Return breakeven period in days
+     */
     get breakeven(){
         //TOTAL PRICE PER YEAR 
         let totalPricePerYear = TruckRollExtendedCalculation.APIZEE_LICENCE_PRICE * this.numTechnicians * 12
-        let savingsPerWeek =  (this.savings / 52)
+        let savingsPerDay =  (this.savings / 356)
         
-        return totalPricePerYear / savingsPerWeek
+        return totalPricePerYear / savingsPerDay
     }
 
     get result_breakeven(){
-        return this.breakeven.toFixed(0)
+        return this.breakeven
     }
 }
 
