@@ -51,6 +51,10 @@ title: CSS Stylesheet
     }
 }
 
+small{
+    font-size: 0.8em;
+}
+
 .result-hypothesis{
     color: main.$light-dark;
     font-size: 1.5em;
@@ -120,7 +124,6 @@ title: CSS Stylesheet
     }
 }
 
-
 .costs-tiles.tiles {
     
     margin:0;
@@ -139,23 +142,6 @@ title: CSS Stylesheet
         }
     }
 }
-
-
-// .result-cost-distribution {
-    
-//     .result-data-title {
-//     font-size: 1.6em;
-//     font-weight: normal;
-//     }
-
-//     .result-value {        
-//         font-size: 1.6em;
-    
-//         .percentage {
-//             font-size: 1em;
-//         }
-//     }
-// }
 
 .result-breakeven {
     background-color: main.$tertiary-color;
@@ -182,6 +168,13 @@ title: CSS Stylesheet
     font-weight: bold;
 }
 
-#truck-roll-form label {
+#truck-roll-form {
+    label {
     font-size: 1.2em;
+    }
+
+    
+    i.fa-regular {
+      color: main.$light-dark  
+    }
 }

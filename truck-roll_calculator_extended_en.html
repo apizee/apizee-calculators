@@ -1,5 +1,5 @@
 ---
-permalink: /truck-roll-calculator-extended/en/
+permalink: /truck-roll-calculator-extended/en
 layout: truck-roll-calculator_extended_layout
 calculatorDescription: "Your truck rolls are costing you more than you realize. Discover the true expense of deploying your fleet with our truck roll calculator."
 CTA: 'Calculate your costs 👇️'
@@ -23,57 +23,52 @@ nbTruckrollHint: "Enter the number of truck rolls per month"
 rateServiceCallResolutionLabel: "Average distance of a truck roll"
 rateServiceCallResolutionExample: "e.g., 120"
 rateServiceCallResolutionHint: "Enter the average distance of a truck roll in kilometers"
-errorInvalidTruckrollNumber: "Invalid truck roll number. Please enter a valid number."
-errorMsgGTZero: "Please enter a value greater than 0"
-errorMsgBetweenZeroAndHundred: "Please enter a value between 1 and 100"
-truckRollCostInCurrency: 968
 avgTruckRollDistanceLabel: "Average distance of a truck roll"
 avgTruckRollDistanceExample: "e.g., 120"
 avgTruckRollDistanceHint: "Enter the average distance of a truck roll in kilometers"
+
+avgTruckRollDurationLabel: "Average duration of a truck roll"
+avgTruckRollDurationExample: "e.g., 2"
+avgTruckRollDurationHint: "Enter the average duration of a truck roll in hours"
+durationUnit: "<i class=\"fa-regular fa-hourglass-half\"></i>"
 numTechniciansLabel: "Number of technicians"
 numTechniciansExample: "e.g., 5"
 numTechniciansHint: "Enter the number of FTEs dedicated to truck roll operations"
-avgAnnualSalaryLabel: "Average annual gross salary for a maintenance specialist"
-avgAnnualSalaryExample: "e.g., 29,268.00 €"
-avgAnnualSalaryHint: "Enter the average annual gross salary for a maintenance specialist in euros"
-laborCostPercentageLabel: "Part of labor cost in total cost of truck roll operations"
-laborCostPercentageExample: "e.g., 90%"
-laborCostPercentageHint: "Enter the percentage of labor cost in the total cost of truck roll operations"
-firstTimeFixRateLabel: "Average first-time fix rate"
-firstTimeFixRateExample: "e.g., 75%"
-firstTimeFixRateHint: "Enter the average first-time fix rate in percentage"
 noFaultFoundRateLabel: "Average No Fault Found rate"
 noFaultFoundRateExample: "e.g., 15%"
 noFaultFoundRateHint: "Enter the average No Fault Found rate in percentage"
 avgAnnualSalaryLabel: Average Annual Gross Salary for a Maintenance Specialist"
 avgAnnualSalaryExample: e.g., 29,268.00 €"
 avgAnnualSalaryHint: "Enter the average annual gross salary for a maintenance specialist in Euros."
-laborCostPercentageLabel: "Part of Labor Cost in Total Cost of Truck Roll Operations"
-laborCostPercentageExample: "e.g., 90"
-laborCostPercentageHint: "Enter the percentage of labor cost in the total cost of truck roll operations."
-firstTimeFixRateLabel: "Average First-Time Fix Rate"
-firstTimeFixRateExample: "e.g., 75"
-firstTimeFixRateHint: "Enter the average first-time fix rate as a percentage."
+
 noFaultFoundRateLabel: "Average No Fault Found Rate"
 noFaultFoundRateExample: "e.g., 15"
 noFaultFoundRateHint: "Enter the average no fault found rate as a percentage."
 costPerDistanceLabel: "Cost per kilometer"
-costPerDistanceLabelExample: "e.g., 20 €"
+costPerDistanceExample: "e.g., 20 €"
 costPerDistanceHint: "Include all costs (labor, vehicule, travel, administrative)"
+
+
+
+errorInvalidTruckrollNumber: "Invalid truck roll number. Please enter a valid number."
+errorMsgGTZero: "Please enter a value greater than 0"
+errorMsgBetweenZeroAndHundred: "Please enter a value between 1 and 100"
 
 #RESULTS
 
 total_cost_per_year_label: "Results:"
-total_cost_per_year_kilo: " k€"
+total_cost_per_year_kilo: " €"
 total_cost_per_year_unit: " /year"
 
-market_hypothesis_co2factor: "Average light Commercial car GHG emissions: 185.3 g CO2 eq. / km (source: https://www.eea.europa.eu/en/newsroom/news/average-emissions-from-new-cars-and-vans)"
-market_hypothesis_workingdaysperyear: "Yearly working days for an employee: 220 days a year."
+market_hypothesis_summary: "For <span class=\"generated\" id=\"hypothesis_truckroll_per_month\"></span> truck rolls per month of an average distance of <span class=\"generated\" id=\"hypothesis_avg_truckroll_distance\"></span>km with an average cost of <span class=\"generated\" id=\"hypothesis_cost_km_truckroll\"></span> €/km. Department of <span class=\"generated\" id=\"hypothesis_num_technicians\"></span> technician(s) with an average NFF of <span class=\"generated\" id=\"hypothesis_NFF\"></span>%."
+market_hypothesis_co2factor: "Average light Commercial car GHG emissions: 185.3 g CO2 eq. / km (source: <a href=\"https://www.eea.europa.eu/en/newsroom/news/average-emissions-from-new-cars-and-vans\"> </a>European Environment Agency</a>)"
 
 cost_per_roll_label: "cost of a truck roll"
 cost_of_useless_rolls_label: "cost of unsuccessful truck rolls"
 avg_employee_hours_label: "employee hours per truck roll"
 cost_per_km_label: "cost per km"
+total_distance_per_year_label: "driven each year"
+co2_emissions_label: "estimated emissions"
 
 # results_distribution_title: "Cost Breakdown"
 # labor_costs_label: "Labor cost"
@@ -95,7 +90,7 @@ currencyUnitPost: "€"
 distanceUnit: "km"
 hoursUnit: " hours"
 truckRollsUnit: "<br/>truck rolls"
-co2EmissionsUnit: " T&nbsp;CO<sub>2</sub>&nbsp;eq."
+co2EmissionsUnit: " <small>T&nbsp;CO<sub>2</sub>&nbsp;eq.</small>"
 
 payback_time_unit_days: "days"
 payback_time_unit_weeks: "weeks"

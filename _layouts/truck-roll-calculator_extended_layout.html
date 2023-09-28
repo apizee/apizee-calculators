@@ -25,13 +25,29 @@
                             <label for="num-truck-rolls">{{page.nbTruckrollLabel}}:</label>
                             <div class="input-group">
                                 <input type="number" class="form-control" id="num-truck-rolls" name="num-truck-rolls"
-                                    placeholder="{{page.nbTruckrollExample}}" aria-describedby="truckRollsHelp"
-                                    value="14" min="0" required>
+                                    placeholder="{{page.nbTruckrollExample}}" aria-describedby="truckRollsHelp" value=""
+                                    min="0" required>
                             </div>
                             <div class="invalid-feedback">
                                 {{page.errorMsgGTZero}}
                             </div>
                             <small id="truckRollsHelp" class="form-text text-muted">{{page.nbTruckrollHint}}</small>
+
+                        </div>
+
+                        <div class="row">
+                            <label for="cost-per-distance">{{page.costPerDistanceLabel}}:</label>
+                            <div class=" input-group">
+                                <span class="input-group-text" id="inputgroup-cost-per-distance">€</span>
+                                <input type="number" class="form-control" id="cost-per-distance"
+                                    name="cost-per-distance" placeholder="{{page.costPerDistanceExample}}"
+                                    aria-describedby="costPerDistanceHelp" value="" min="0" required>
+                            </div>
+                            <div class="invalid-feedback">
+                                {{page.errorMsgGTZero}}
+                            </div>
+                            <small id="costPerDistanceHelp" class="form-text text-muted">{{page.costPerDistanceHint}}
+                            </small>
 
                         </div>
                         <div class="row">
@@ -42,21 +58,38 @@
                                     id="inputGroup-truck-troll-distance">{{page.distanceUnit}}</span>
                                 <input type="number" class="form-control" id="avg-truck-roll-distance"
                                     name="avg-truck-roll-distance" placeholder="{{page.avgTruckRollDistanceExample}}"
-                                    min="0" aria-describedby="avgTruckRollDistanceHelp" value="120" required>
+                                    min="0" aria-describedby="avgTruckRollDistanceHelp" value="" required>
                             </div>
                             <div class="invalid-feedback">
                                 {{page.errorMsgGTZero}}
                             </div>
                             <small id="avgTruckRollDistanceHelp"
                                 class="form-text text-muted">{{page.avgTruckRollDistanceHint}}</small>
+                        </div>
+                        <div class="row">
+                            <label for="avg-truck-roll-distance">{{page.avgTruckRollDurationLabel}}:</label>
 
+                            <div class="input-group">
+                                <span class="input-group-text" id="inputGroup-truck-troll-duration"><i
+                                        class="fa-regular fa-hourglass-half"></i></span>
+                                <input type="number" class="form-control" id="avg-truck-roll-duration"
+                                    name="avg-truck-roll-duration" placeholder="{{page.avgTruckRollDurationExample}}"
+                                    min="0" step="0.5" aria-describedby="avgTruckRollDurationHelp" value="" required>
+                            </div>
+                            <div class="invalid-feedback">
+                                {{page.errorMsgGTZero}}
+                            </div>
+                            <small id="avgTruckRollDistanceHelp"
+                                class="form-text text-muted">{{page.avgTruckRollDurationHint}}</small>
                         </div>
                         <div class="row">
                             <label for="num-technicians">{{page.numTechniciansLabel}}:</label>
                             <div class="input-group">
+                                <span class="input-group-text" id="inputGroup-truck-troll-technicians"><i
+                                        class="fa-regular fa-user"></i></span>
                                 <input type="number" class="form-control" id="num-technicians" name="num-technicians"
                                     min="0" placeholder="{{page.numTechniciansExample}}"
-                                    aria-describedby="numTechniciansHelp" value="5" min="0" required>
+                                    aria-describedby="numTechniciansHelp" value="" min="0" required>
                             </div>
                             <div class="invalid-feedback">
                                 {{page.errorMsgGTZero}}
@@ -65,43 +98,14 @@
                                 class="form-text text-muted">{{page.numTechniciansHint}}</small>
 
                         </div>
-                        <div class="row">
-                            <label for="cost-per-distance">{{page.costPerDistanceLabel}}:</label>
-                            <div class=" input-group">
-                                <span class="input-group-text" id="inputgroup-cost-per-distance">€</span>
-                                <input type="number" class="form-control" id="cost-per-distance"
-                                    name="cost-per-distance" placeholder="{{page.costPerDistanceExample}}"
-                                    aria-describedby="costPerDistanceHelp" value="90" min="0" required>
-                            </div>
-                            <div class="invalid-feedback">
-                                {{page.errorMsgGTZero}}
-                            </div>
-                            <small id="costPerDistanceHelp" class="form-text text-muted">{{page.costPerDistanceHint}}
-                            </small>
 
-                        </div>
-
-                        <div class="row">
-                            <label for="first-time-fix-rate">{{page.firstTimeFixRateLabel}}:</label>
-                            <div class="input-group">
-                                <span class="input-group-text" id="inputGroup-firstTimeFixRate">%</span>
-                                <input type="number" class="form-control" id="first-time-fix-rate"
-                                    name="first-time-fix-rate" placeholder="{{page.firstTimeFixRateExample}}"
-                                    aria-describedby="firstTimeFixRateHelp" value="75" min="0" max="100" required>
-                            </div>
-                            <div class="invalid-feedback">
-                                {{page.errorMsgBetweenZeroAndHundred}}
-                            </div>
-                            <small id="firstTimeFixRateHelp"
-                                class="form-text text-muted">{{page.firstTimeFixRateHint}}</small>
-                        </div>
                         <div class="row">
                             <label for="no-fault-found-rate">{{page.noFaultFoundRateLabel}}:</label>
                             <div class=" input-group">
                                 <span class="input-group-text" id="inputGroup-noFaultFoundRate">%</span>
                                 <input type="number" class="form-control" id="no-fault-found-rate"
                                     name="no-fault-found-rate" placeholder="{{page.noFaultFoundRateExample}}"
-                                    aria-describedby="noFaultFoundRateHelp" value="15" min="0" max="100" required>
+                                    aria-describedby="noFaultFoundRateHelp" value="" min="0" max="100" required>
                             </div>
                             <div class="invalid-feedback">
                                 {{page.errorMsgBetweenZeroAndHundred}}
@@ -138,35 +142,30 @@
                         <p class="result-section-title">{{page.total_cost_per_year_label}}</p>
                         <p class="result-value">
                             <span class="pre-unit">{{page.currencyUnitPre}}</span>
-                            <span class="value">162{{page.total_cost_per_year_kilo}}</span>
+                            <span class="value"><span class="generated"
+                                    id="result_total_cost"></span>{{page.total_cost_per_year_kilo}}</span>
                             <span class="post-unit">{{page.total_cost_per_year_unit}}</span>
                         </p>
                     </div>
                     <div class="row result-hypothesis">
-                        <p><span id="hypothesis">For 14 truck rolls per month of an average distance of 120km with an
-                                average cost of 90€/km. Department of 5 technicians with a average TTF rate of 75% and
-                                an average NFF of 15%.</span>
-                            <i class="fa-solid fa-circle-info" data-bs-toggle="collapse" href="#market-figures-div"
-                                role="button" aria-expanded="false" aria-controls="market-figures-div"></i>
+                        <p><span id="hypothesis">{{page.market_hypothesis_summary}}</span>
+                            <small> <i class="fa-solid fa-circle-info" data-bs-toggle="collapse"
+                                    href="#market-figures-div" role="button" aria-expanded="false"
+                                    aria-controls="market-figures-div"></i></small>
                         </p>
                         <div class="collapse" id="market-figures-div">
-                            <small>
-                                <ul>
-                                    <li>{{page.market_hypothesis_co2factor}}</li>
-                                    <li>{{page.market_hypothesis_workingdaysperyear}}</li>
-                                </ul>
+                            <small>{{page.market_hypothesis_co2factor}}
                             </small>
                         </div>
                     </div>
 
-
                     <div class="row costs-tiles tiles row-cols-4 mb-2">
                         <!-- Cost per truck roll -->
-                        <div class="result-output col-sm m-1 p-3">
+                        <div class="result-output col-sm m-1 p-3  my-auto">
 
-                            <p class="result-value ">
+                            <p class="result-value">
                                 <span class="pre-unit ">{{page.currencyUnitPre}}</span>
-                                <span class="value ">968</span>
+                                <span class="value generated" id="result_cost_per_truckroll"></span>
                                 <span class="post-unit ">{{page.currencyUnitPost}}</span>
                             </p>
                             <p class="result-data-title"> {{page.cost_per_roll_label}}</p>
@@ -174,75 +173,34 @@
                         </div>
 
                         <!-- Cost of useless truck rolls -->
-                        <div class="result-output col-sm m-1 p-3">
+                        <div class="result-output col-sm m-1 p-3  my-auto">
 
                             <p class="result-value">
                                 <span class="pre-unit ">{{page.currencyUnitPre}}</span>
-                                <span class="value ">65,040</span>
+                                <span class="value generated" id="result_cost_nff"></span>
                                 <span class="post-unit ">{{page.currencyUnitPost}}</span>
                             </p>
                             <p class="result-data-title">{{page.cost_of_useless_rolls_label}}</p>
                         </div>
 
-                        <!-- Average employee hours per truck roll -->
-                        <div class="result-output col-sm p-3 m-1">
+                        <!-- Total distance per yea -->
+                        <div class="result-output col-sm p-3 m-1  my-auto">
                             <p class="result-value ">
-                                <span class="value" style="text-align:right; padding-right:5px">52</span>
-                                <span class="post-unit " style="padding-left:0;text-align:left;"></span>
+                                <span class="value generated" id="result_total_distance_per_year"></span>
+                                <span class="post-unit ">{{page.distanceUnit}}</span>
                             </p>
-                            <p class="result-data-title">{{page.avg_employee_hours_label}}</p>
+                            <p class="result-data-title">{{page.total_distance_per_year_label}}</p>
                         </div>
-
-                        <!-- Cost per km -->
-                        <div class="result-output col-sm p-3 m-1">
-                            <p class="result-value ">
-                                <span class="pre-unit ">{{page.currencyUnitPre}}</span>
-                                <span class="value ">8.07</span>
-                                <span class="post-unit ">{{page.currencyUnitPost}}</span>
+                        <!-- Total CO2 emissions-->
+                        <div class="result-output col-sm p-3 m-1  my-auto">
+                            <p class="result-value">
+                                <span class="value generated" id="result_co2_emissions"></span>
+                                <span class="post-unit">{{page.co2EmissionsUnit}}</span>
                             </p>
-                            <p class="result-data-title">{{page.cost_per_km_label}}</p>
+                            <p class="result-data-title">
+                                {{page.co2_emissions_label}}</p>
                         </div>
                     </div>
-
-
-                    <!-- <div class="row result-cost-distribution">
-
-                        <div class="col-sm-8 align-items-center">
-                            <p class="result-section-title row">{{page.results_distribution_title}}</p>
-                            <div class="result-output row">
-                                <p class="col-sm-6 result-data-title">{{page.labor_costs_label}}</p>
-                                <p class="col-sm-6 result-value">
-                                    <span class="pre-unit">{{page.currencyUnitPre}}</span>
-                                    <span class="value">146,340.00</span>
-                                    <span class="post-unit">{{page.currencyUnitPost}}</span>
-                                    <span class="percentage">(90%)</span>
-                                </p>
-                            </div>
-
-                            <div class="result-output row">
-                                <p class="col-sm-6 result-data-title">{{page.gasoline_cost_label}}</p>
-                                <p class="col-sm-6 result-value">
-                                    <span class="pre-unit">{{page.currencyUnitPre}}</span>
-                                    <span class="value">2,959.24</span>
-                                    <span class="post-unit">{{page.currencyUnitPost}}</span>
-                                    <span class="percentage">(2%)</span>
-                                </p>
-                            </div>
-
-                            <div class="result-output row">
-                                <p class="col-sm-6 result-data-title">{{page.other_costs_label}}</p>
-                                <p class="col-sm-6 result-value">
-                                    <span class="pre-unit">{{page.currencyUnitPre}}</span>
-                                    <span class="value">13,300.76</span>
-                                    <span class="post-unit">{{page.currencyUnitPost}}</span>
-                                    <span class="percentage">(8%)</span>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <canvas id="costs-breakdown-chart" ></canvas>
-                        </div>
-                    </div> -->
 
                     <!-- Estimated savings with Apizee -->
                     <div class="row result-savings tiles">
@@ -252,28 +210,17 @@
                             <div class="result-output col-sm p-3 m-1 my-auto">
                                 <p class="result-value">
                                     <span class="pre-unit">{{page.currencyUnitPre}}</span>
-                                    <span class="value">65,040</span>
-                                    <!-- <span class="post-unit">{{page.currencyUnitPost}}</span> -->
+                                    <span class="value generated" id="result_savings"></span>
+                                    <span class="post-unit">{{page.currencyUnitPost}}</span>
                                 </p>
                                 <p class="result-data-title">{{page.estimated_savings_label}}</p>
-                            
-                            </div>
 
-                            <!-- Hours given back to employees -->
-                            <div class="result-output col-sm p-3 m-1 my-auto">
-
-                                <p class="result-value">
-                                    <span class="value">3520</span>
-                                    <span class="post-unit">{{page.hoursUnit}}</span>
-                                </p>
-                                <p class="result-data-title">{{page.hours_given_back_label}}
-                                </p>
                             </div>
 
                             <!-- Fewer truck rolls per year -->
                             <div class="result-output col-sm p-3 m-1 my-auto">
                                 <p class="result-value">
-                                    <span class="value">67</span>
+                                    <span class="value generated" id="result_savings_truck_rolls"></span>
                                     <span class="post-unit"></span>
                                 </p>
                                 <p class="result-data-title">{{page.fewer_rolls_label}}</p>
@@ -283,7 +230,7 @@
                             <div class="result-output col-sm p-3 m-1">
 
                                 <p class="result-value">
-                                    <span class="value">0.6</span>
+                                    <span class="value generated" id="result_co2_avoided"></span>
                                     <span class="post-unit">{{page.co2EmissionsUnit}}</span>
                                 </p>
                                 <p class="result-data-title">
@@ -295,9 +242,11 @@
                     <!-- Apizee would pay for itself in just -->
                     <div class="result-output row result-breakeven p-4">
                         <p class="result-data-title">{{page.apizee_payback_label}}</p>
-                        <p class="result-value">
-                            <span class="value">7</span>
-                            <span class="post-unit">{{page.payback_time_unit_weeks}}</span>
+                        <p class="result-value m-0">
+                            <span class="value generated" id="result_breakeven"></span>
+                            <span id="breakeven-unit-weeks" class="post-unit weeks collapse">{{page.payback_time_unit_weeks}}</span>
+                            <span id="breakeven-unit-months" class="post-unit months collapse">{{page.payback_time_unit_months}}</span>
+                            <span id="breakeven-unit-days" class="post-unit days collapse">{{page.payback_time_unit_days}}</span>
                         </p>
                     </div>
 
@@ -306,95 +255,23 @@
         </div>
     </div>
 
-
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2/dist/js/bootstrap.min.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-    <script src="{{site.baseurl}}/assets/js/labor-chart.js"></script>
+    <script src="{{site.baseurl}}/assets/js/truck-roll-extended-script.js" type="module"></script>
 
     <script>
-        // Data for the chart
-        var options = {
-            title: "Cost breakdown",
-            labels: ["Cost of labor", "Cost of gasoline", "Other costs"],
-            colors: ["#EB3E0A", "#F88562", "#FDF3E8"],
-            values: [0.8, 0.1, 0.1],
-            canvas_id: "costs-breakdown-chart"
-        }
-
-        makeChart(options)
-
-    </script>
-
-
-    <script>
-
         document.getElementById("share-link").addEventListener("click", function (e) {
             e.preventDefault();
             var shareIcons = document.getElementById("share-icons");
             shareIcons.style.display = shareIcons.style.display === "none" ? "block" : "none";
         });
 
-        function calculateSavings() {
-
-
-            // Clear previous errors and styles
-            document.getElementById("error-message").innerHTML = "";
-            document.getElementById("num-truck-rolls").classList.remove("error-input");
-
-            var numTruckRolls = document.getElementById("num-truck-rolls").value == "" ? 0 : parseInt(document.getElementById("num-truck-rolls").value)
-
-            // Validate input values
-            if (isNaN(numTruckRolls) || parseInt(numTruckRolls) < 0) {
-                document.getElementById("error-message").innerHTML = "{{page.errorInvalidTruckrollNumber}}";
-                document.getElementById("num-truck-rolls").classList.add("error-input");
-                return;
-            }
-
-            var costPerTruckRoll = 100;
-
-
-            var reductionPercentage = 40;
-
-            // Calculate total cost of truck rolls
-            var totalCostOfTruckRolls = numTruckRolls * costPerTruckRoll;
-
-            // Calculate potential savings
-            var potentialSavings = totalCostOfTruckRolls * (reductionPercentage / 100);
-
-
-            // Format potential savings as currency
-            var formattedSavings = "{{page.resultCostCurrencyPre}}" + potentialSavings.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '{{page.thousandsSeparator}}') + "{{page.resultCostCurrencyPost}}";
-            var formattedtotalCostOfTruckRolls = "{{page.resultCostCurrencyPre}}" + totalCostOfTruckRolls.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '{{page.thousandsSeparator}}') + "{{page.resultCostCurrencyPost}}";
-
-            // Display results
-            //document.getElementById("results").innerHTML = '<p class="h3" data-trigger="hover" data-bs-toggle="tooltip" data-placement="top" title="{{page.resultCostHint}}">{{page.resultCosth3}}: ' + formattedtotalCostOfTruckRolls + '</p>';
-            //document.getElementById("results_2").innerHTML = '<p data-trigger="hover" data-bs-toggle="tooltip" title="{{page.resultReductionHint}}">{{page.resultReductionLabel}}: ' + formattedSavings + '</p>';
-        }
-
-        // Example starter JavaScript for disabling form submissions if there are invalid fields
-        (function () {
-            'use strict'
-
-            // Fetch all the forms we want to apply custom Bootstrap validation styles to
-            var forms = document.querySelectorAll('.needs-validation')
-
-            // Loop over them and prevent submission
-            Array.prototype.slice.call(forms)
-                .forEach(function (form) {
-                    form.addEventListener('submit', function (event) {
-                        if (!form.checkValidity()) {
-                            event.preventDefault()
-                            event.stopPropagation()
-                        }
-
-                        form.classList.add('was-validated')
-                    }, false)
-                })
-        })()
+        
+        //Init on load
+        window.addEventListener("load", (event) => {
+            window.populateTruckRollCosts('{{page.lang}}')
+        });
 
     </script>
 </body>
