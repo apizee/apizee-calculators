@@ -3,18 +3,35 @@ import TruckRollExtendedCalculation from "./truck-roll-extended-calculation-modu
 (function () {
     'use strict'
 
-    let searchParams = new URLSearchParams(location.search)
-    let calculationModule = new TruckRollExtendedCalculation(searchParams)
+    let expectedInput = [
+        {id:'num-truck-rolls', defaultValue:80},
+        {id:'cost-per-distance', defaultValue: 20},
+        {id:'avg-truck-roll-distance', defaultValue:30},
+        {id:'avg-truck-roll-duration', defaultValue:2},
+        {id:'num-technicians', defaultValue:5},
+        {id:'no-fault-found-rate',  defaultValue:15}]
 
-    calculationModule.expectedParams.forEach(param => {
-        console.log(param.currentValue)
+    let queryString = ""
+
+    expectedInput.forEach((input, index) =>{
+        if($("#"+input.id).val() == ""){
+            $("#"+input.id).val(input.defaultValue)
+        }
+
+        expectedInput[index].currentValue= $("#"+input.id).val()
+
+        queryString+= input.id+"="+expectedInput[index].currentValue+"&"
     })
-    
-    // if (!searchParams.has('num-truck-rolls')) {
-        
-    //     $("#truck-roll-form input#num-truck-rolls").val()
-    // }
 
+
+    if (history.pushState) {
+        var newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?'+queryString;
+        window.history.pushState({path:newurl},'',newurl);
+    }
+
+    let calculationModule = new TruckRollExtendedCalculation(expectedInput)
+
+    
     $(".generated").each(function () {
         var id = $(this).attr("id");
 

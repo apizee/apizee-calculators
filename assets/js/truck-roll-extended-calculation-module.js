@@ -1,27 +1,45 @@
 class TruckRollExtendedCalculation {
 
-    constructor(searchParams) {
+    /**
+     * 
+     * @param {Object[]} inputArray 
+     * @param {string} inputArray.id id of the form input
+     * @param {Number} inputArray.currentValue value for the input
+     * @param {Number} inputArray.defaultValue 
+     */
+    constructor(inputArray) {
 
-        this.expectedParams = [
-            {name:'num-truck-rolls', defaultValue:80, currentValue: this.hypothesis_truckroll_per_month},
-            {name:'cost-per-distance', defaultValue: 20, currentValue: this.hypothesis_cost_km_truckroll},
-            {name:'avg-truck-roll-distance', defaultValue:30, currentValue:this.hypothesis_avg_truckroll_distance},
-            {name:'avg-truck-roll-duration', defaultValue:2, currentValue:this.hypothesis_avg_truckroll_duration},
-            {name:'num-technicians', defaultValue:5, currentValue:this.hypothesis_num_technicians},
-            {name:'no-fault-found-rate',  defaultValue:15, currentValue: this.hypothesis_NFF}]
+        inputArray.forEach(input => {
 
-        this.expectedParams.forEach(param => {
-             if(!searchParams.has(param.name)) {
-                searchParams.set(param.name, param.defaultValue)
-             }
+            if(input.currentValue == undefined){
+                throw Error("Missing input parameter value for "+input.id)
+            }
+
+            switch(input.id){
+            
+                case 'num-truck-rolls': 
+                    this.numTruckRolls= input.currentValue
+                    console.log(this.numTruckRolls)
+                    break;
+                case 'cost-per-distance': 
+                    this.costPerDistance = input.currentValue
+                    break;
+                case 'avg-truck-roll-distance': 
+                    this.avgTruckRollDistance = input.currentValue
+                    break;
+                case 'avg-truck-roll-duration':
+                    this.avgTruckRollDuration = input.currentValue
+                    break;
+                case 'num-technicians':
+                    this.numTechnicians = input.currentValue
+                    break;
+                case 'no-fault-found-rate':
+                    this.noFaultFoundRate = input.currentValue/100
+                    break;    
+                default:
+                    throw Error("Input not implemented in class: "+input.id)
+            }
         })
-
-        this.numTruckRolls = parseInt(searchParams.get('num-truck-rolls'))
-        this.costPerDistance = parseFloat(searchParams.get('cost-per-distance'))
-        this.avgTruckRollDistance = parseFloat(searchParams.get('avg-truck-roll-distance'))
-        this.avgTruckRollDuration = parseFloat(searchParams.get('avg-truck-roll-duration'))
-        this.numTechnicians = parseFloat(searchParams.get('num-technicians'))
-        this.noFaultFoundRate = parseFloat(searchParams.get('no-fault-found-rate')) / 100
     }
 
     get hypothesis_truckroll_per_month(){
