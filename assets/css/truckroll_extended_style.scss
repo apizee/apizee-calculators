@@ -57,7 +57,8 @@ small{
 
 .result-hypothesis{
     color: main.$light-dark;
-    font-size: 1.5em;
+    font-size: 1.3em;
+    margin:0;
 }
 
 .tiles {
@@ -72,14 +73,6 @@ small{
             text-align: center;
             margin:0;
         }
-
-        // hr {
-        //     width: 2rem;
-        //     border-color: main.$primary-color-light;
-        //     margin: auto;
-        //     border-width: 0.5px;
-
-        // }
 
         .result-value{
             color: main.$primary-color-light;

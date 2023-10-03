@@ -1,0 +1,38 @@
+$button-bg-color: #4CAF50;
+$button-hover-color: #45a049;
+
+.share-section {
+    font-family: Arial, sans-serif;
+    h3 {
+        font-size: 1.5em;
+    }
+    h4 {
+        display: inline-block;
+        margin-right: 10px;
+        font-size: 1.2em;
+    }
+    .calculatorCopyBtn {
+        background-color: $button-bg-color;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        &:hover {
+            background-color: $button-hover-color;
+        }
+    }
+    .share-icons {
+        margin-top: 20px;
+        a {
+            margin-right: 10px;
+        }
+        img {
+            width: 44px;
+            height: 44px;
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+    }
+}
