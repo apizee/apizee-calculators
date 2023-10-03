@@ -17,7 +17,7 @@
 <body>
     <div class="container container-box p-3">
         <div class="row">
-            <div class="col-sm-3">
+            <div class="col-lg-4">
                 <h2>{{page.CTA}}</h2>
                 <div class="shadow  truck-roll-input">
                     <form id="truck-roll-form" class="p-3 mt-4 needs-validation" novalidate>
@@ -134,7 +134,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-9">
+            <div class="col-lg-8">
                 <div id="results" class="p-3 rounded" aria-live="polite">
 
                     <!-- Total cost of truck roll per year -->
@@ -159,9 +159,9 @@
                         </div>
                     </div>
 
-                    <div class="row costs-tiles tiles row-cols-4 mb-2">
+                    <div class="row costs-tiles tiles mb-2">
                         <!-- Cost per truck roll -->
-                        <div class="result-output col-sm m-1 p-3">
+                        <div class="result-output col-lg m-1 p-3">
 
                             <p class="result-value">
                                 <span class="pre-unit ">{{page.currencyUnitPre}}</span>
@@ -173,7 +173,7 @@
                         </div>
 
                         <!-- Cost of useless truck rolls -->
-                        <div class="result-output col-sm m-1 p-3">
+                        <div class="result-output col-lg m-1 p-3">
 
                             <p class="result-value">
                                 <span class="pre-unit ">{{page.currencyUnitPre}}</span>
@@ -184,7 +184,7 @@
                         </div>
 
                         <!-- Total distance per yea -->
-                        <div class="result-output col-sm p-3 m-1">
+                        <div class="result-output col-lg p-3 m-1">
                             <p class="result-value ">
                                 <span class="value generated" id="result_total_distance_per_year"></span>
                                 <span class="post-unit ">{{page.distanceUnit}}</span>
@@ -192,7 +192,7 @@
                             <p class="result-data-title">{{page.total_distance_per_year_label}}</p>
                         </div>
                         <!-- Total CO2 emissions-->
-                        <div class="result-output col-sm p-3 m-1">
+                        <div class="result-output col-lg p-3 m-1">
                             <p class="result-value">
                                 <span class="value generated" id="result_co2_emissions"></span>
                                 <span class="post-unit">{{page.co2EmissionsUnit}}</span>
@@ -207,7 +207,7 @@
                         <p class="result-section-title">{{page.results_savings_title}}</p>
                         <div class="row">
                             <!-- Savings -->
-                            <div class="result-output col-sm p-3 m-1">
+                            <div class="result-output col-lg p-3 m-1">
                                 <p class="result-value">
                                     <span class="pre-unit">{{page.currencyUnitPre}}</span>
                                     <span class="value generated" id="result_savings"></span>
@@ -218,7 +218,7 @@
                             </div>
 
                             <!-- Fewer truck rolls per year -->
-                            <div class="result-output col-sm p-3 m-1">
+                            <div class="result-output col-lg p-3 m-1">
                                 <p class="result-value">
                                     <span class="value generated" id="result_savings_truck_rolls"></span>
                                     <span class="post-unit"></span>
@@ -227,7 +227,7 @@
                             </div>
 
                             <!-- T CO2 eq emissions avoided -->
-                            <div class="result-output col-sm p-3 m-1">
+                            <div class="result-output col-lg p-3 m-1">
 
                                 <p class="result-value">
                                     <span class="value generated" id="result_co2_avoided"></span>
