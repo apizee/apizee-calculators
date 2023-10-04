@@ -84,7 +84,7 @@ class TruckRollExtendedCalculation {
     } 
 
     get result_cost_nff(){
-        return this.cost_nff >= 100000 ? (this.cost_nff/1000).toFixed(0)+" k" : this.cost_nff
+        return this.cost_nff >= 10000 ? (this.cost_nff/1000).toFixed(1)+" k" : this.cost_nff
     } 
 
 

@@ -92,7 +92,7 @@ test("Correct result cost per truck roll", () =>{
 
 test("Correct result nff cost", () =>{
     let extension = new TruckRollExtendedCalculation(validExpectedInput)
-    expect(extension.result_cost_nff).toBe(86400)
+    expect(extension.result_cost_nff).toBe('86.4 k')
 })
 
 
