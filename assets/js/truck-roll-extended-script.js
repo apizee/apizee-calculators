@@ -8,7 +8,6 @@ function populateTruckRollCosts(lang) {
         {id:'num-truck-rolls', defaultValue:80},
         {id:'cost-per-distance', defaultValue: 20},
         {id:'avg-truck-roll-distance', defaultValue:30},
-        {id:'avg-truck-roll-duration', defaultValue:2},
         {id:'num-technicians', defaultValue:5},
         {id:'no-fault-found-rate',  defaultValue:15}]
 

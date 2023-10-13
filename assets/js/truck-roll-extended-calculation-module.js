@@ -26,9 +26,6 @@ class TruckRollExtendedCalculation {
                 case 'avg-truck-roll-distance': 
                     this.avgTruckRollDistance = input.currentValue
                     break;
-                case 'avg-truck-roll-duration':
-                    this.avgTruckRollDuration = input.currentValue
-                    break;
                 case 'num-technicians':
                     this.numTechnicians = input.currentValue
                     break;
@@ -47,10 +44,6 @@ class TruckRollExtendedCalculation {
 
     get hypothesis_avg_truckroll_distance(){
         return this.avgTruckRollDistance
-    }
-
-    get hypothesis_avg_truckroll_duration(){
-        return this.avgTruckRollDuration
     }
 
     get hypothesis_cost_km_truckroll(){

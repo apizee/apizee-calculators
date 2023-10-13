@@ -7,7 +7,6 @@ let validExpectedInput = [
     {id:'num-truck-rolls', defaultValue:80, currentValue: 80},
     {id:'cost-per-distance', defaultValue: 20, currentValue: 20},
     {id:'avg-truck-roll-distance', defaultValue:30, currentValue: 30},
-    {id:'avg-truck-roll-duration', defaultValue:2, currentValue: 2},
     {id:'num-technicians', defaultValue:5, currentValue: 5},
     {id:'no-fault-found-rate',  defaultValue:15, currentValue: 15}]
 
@@ -15,7 +14,6 @@ let validExpectedInputWithMissingValue = [
         {id:'num-truck-rolls', defaultValue:80},
         {id:'cost-per-distance', defaultValue: 20, currentValue: 20},
         {id:'avg-truck-roll-distance', defaultValue:30, currentValue: 30},
-        {id:'avg-truck-roll-duration', defaultValue:2, currentValue: 2},
         {id:'num-technicians', defaultValue:5, currentValue: 5},
         {id:'no-fault-found-rate',  defaultValue:15, currentValue: 15}]
     
@@ -28,9 +26,8 @@ test("Valid Constructor", () => {
     expect(extension.numTruckRolls).toBe(parseInt(validExpectedInput[0].currentValue))
     expect(extension.costPerDistance).toBe(parseFloat(validExpectedInput[1].currentValue))
     expect(extension.avgTruckRollDistance).toBe(parseFloat(validExpectedInput[2].currentValue))
-    expect(extension.avgTruckRollDuration).toBe(parseFloat(validExpectedInput[3].currentValue))
-    expect(extension.numTechnicians).toBe(parseFloat(validExpectedInput[4].currentValue))
-    expect(extension.noFaultFoundRate).toBe(parseFloat(validExpectedInput[5].currentValue)/100)
+    expect(extension.numTechnicians).toBe(parseFloat(validExpectedInput[3].currentValue))
+    expect(extension.noFaultFoundRate).toBe(parseFloat(validExpectedInput[4].currentValue)/100)
 });
 
 test("Missing value in inputs", () => {
@@ -53,13 +50,6 @@ test("Correct avg distance", () =>{
     let extension = new TruckRollExtendedCalculation(validExpectedInput)
     expect(extension.hypothesis_avg_truckroll_distance).toBe(30)
 })
-
-test("Correct avg duration", () =>{
-    
-    let extension = new TruckRollExtendedCalculation(validExpectedInput)
-    expect(extension.hypothesis_avg_truckroll_duration).toBe(2)
-})
-
 
 test("Correct cost per km", () =>{
     let extension = new TruckRollExtendedCalculation(validExpectedInput)
