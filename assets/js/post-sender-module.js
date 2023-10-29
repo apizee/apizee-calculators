@@ -1,5 +1,5 @@
 
-import CookieManager from './cookies-manager-module'
+import CookieManager from './cookies-manager-module.js'
 
 class PostSender {
     /**
@@ -65,7 +65,7 @@ class PostSender {
         let requestOptions = { method: 'POST', body: JSON.stringify(builtBody) }
 
         // Send the POST request
-        fetch(this.url, requestOptions)
+        fetch(this.serviceURL, requestOptions)
             .then((response) => {
                 if (!response.ok) {
                     throw new Error(`HTTP error! Status: ${response.status}`);

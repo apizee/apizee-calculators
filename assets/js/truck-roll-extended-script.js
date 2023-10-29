@@ -133,8 +133,9 @@ form.addEventListener('submit', event => {
        let data = populateTruckRollCosts()
 
        setTimeout((data) =>{
-        sendData(data)
-        //sender = PostSender("https://hooks.zapier.com/hooks/catch/436453/38gok76/")
+        //sendData(data)
+        const sender = new PostSender("https://hooks.zapier.com/hooks/catch/436453/38gok76/")
+        sender.postData(data)
        }, 1000, data)
     }
 
