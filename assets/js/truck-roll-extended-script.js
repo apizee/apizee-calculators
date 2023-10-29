@@ -1,3 +1,4 @@
+import PostSender from "./post-sender-module.js";
 import TruckRollExtendedCalculation from "./truck-roll-extended-calculation-module.js";
 
 let currentLanguage = ''
@@ -133,6 +134,7 @@ form.addEventListener('submit', event => {
 
        setTimeout((data) =>{
         sendData(data)
+        //sender = PostSender("https://hooks.zapier.com/hooks/catch/436453/38gok76/")
        }, 1000, data)
     }
 

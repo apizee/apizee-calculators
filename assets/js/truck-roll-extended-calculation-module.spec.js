@@ -2,7 +2,6 @@ import { expect, test } from "bun:test";
 
 import TruckRollExtendedCalculation from "./truck-roll-extended-calculation-module"
 
-
 let validExpectedInput = [
     {id:'num-truck-rolls', defaultValue:80, currentValue: 80},
     {id:'cost-per-distance', defaultValue: 20, currentValue: 20},

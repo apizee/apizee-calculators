@@ -43,3 +43,9 @@ exclude:
   - README.md
   - "*.spec.*"
 
+
+sass:
+  sass_dir: _sass
+  style: compressed # or expanded, depending on your preference
+
+

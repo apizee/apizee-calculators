@@ -1,0 +1,6 @@
+logLevel = "debug" # "debug" | "warn" | "error"
+
+
+
+[test]
+preload = "./virtualDomSimulation.ts"
