@@ -149,7 +149,7 @@ class TruckRollExtendedCalculation {
 
 TruckRollExtendedCalculation.CO2_EMISSION_FACTOR = 185.3 //source: European Environment Agency
 TruckRollExtendedCalculation.APIZEE_TR_REDUCTION_FACTOR = 0.4
-TruckRollExtendedCalculation.APIZEE_LICENCE_PRICE = 140
+TruckRollExtendedCalculation.APIZEE_LICENCE_PRICE = 100
 
 
 export default TruckRollExtendedCalculation
