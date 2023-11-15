@@ -1,0 +1,172 @@
+--- 
+title: CSS Stylesheet
+--- 
+
+
+@use "main" with (
+    $baseurl: "{{site.baseurl}}",
+    $app-width: 1200px
+  );
+
+.fcr-input{
+    border-radius: 15px;
+
+    .btn-cta{
+        background-color: main.$primary-color;
+        border: none;
+        width: 100%;
+        font-size: 1.5em;
+    }
+}
+
+
+.main-result {
+
+    margin-bottom: 0;
+
+    .result-section-title {
+        font-size: 1.2em;
+        margin:0;
+    }
+
+    .result-value {
+        margin-bottom: 0;
+
+        .pre-unit {
+            font-size: 6em;
+            font-weight: bolder;
+            color: main.$primary-color;
+        }
+
+        .value {
+            font-size: 6em;
+            font-weight: bolder;
+            color: main.$primary-color;
+        }
+
+        .post-unit {
+            color: main.$primary-color;
+            font-size: 2em;
+        }
+    }
+}
+
+small{
+    font-size: 0.8em;
+}
+
+.result-hypothesis{
+    color: main.$light-dark;
+    font-size: 1.5em;
+}
+
+.tiles {
+
+    .result-output{
+        text-align: center;
+        
+
+        .result-data-title{
+            font-size: 1.3em;
+            font-weight: 400;
+            text-align: center;
+            margin:0;
+        }
+
+        .result-value{
+            color: main.$primary-color-light;
+            font-weight: bold;
+            font-size: 2.2em;
+            line-height: 1;
+
+            .pre-unit{
+                text-align: right;
+                padding-right:0;                
+                margin:0
+            }
+            
+            .value{
+                padding:0;
+                margin:0
+            }
+            .post-unit{
+                text-align: left;
+                padding-left:0;
+                margin:0
+            }
+        }
+    }
+}
+
+.custom-vertical-align {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.result-savings.tiles {
+    .result-output{
+        
+    }
+    
+    .result-output-box {
+        border: 0.5px main.$light-light-dark solid;
+    }
+}
+
+.costs-tiles.tiles {
+    
+    margin:0;
+
+    .result-output{
+        border-radius: 10px;
+        background-color: white;
+        margin:0;
+
+        .result-data-title{
+            text-align: center;
+        }
+
+        .result-value{
+            color: main.$light-dark;
+        }
+    }
+}
+
+.result-breakeven {
+    background-color: main.$tertiary-color;
+    border-radius: 25px;
+    .result-data-title {
+        font-size: 2em;
+        text-align: center;
+    }
+    .result-value {
+        text-align: center;
+        font-size: 3em;
+        font-weight: bold;
+        color: main.$primary-color;
+    }
+}
+
+.result-section-title {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.result-data-title {
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+#truck-roll-form {
+    label {
+    font-size: 1.2em;
+    }
+
+    
+    i.fa-regular {
+      color: main.$light-dark  
+    }
+}
