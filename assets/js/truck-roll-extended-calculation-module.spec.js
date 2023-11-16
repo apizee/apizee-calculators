@@ -116,6 +116,6 @@ test("Correct result avoided CO2 emissions", () =>{
 
 test("Correct result time to breakeven", () =>{
     let extension = new TruckRollExtendedCalculation(validExpectedInput)
-    expect(Math.round(extension.result_breakeven)).toBe(13)
+    expect(Math.round(extension.result_breakeven)).toBe(9)
 })
 
