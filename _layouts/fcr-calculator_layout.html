@@ -78,54 +78,56 @@
                 {% include share_buttons.html %}
             </div>
             <div class="col-lg-6">
-                <div id="results" class="p-3 rounded" aria-live="polite">
+                <div id="results" class="p-3" aria-live="polite">
 
                     <!-- FCR -->
                     <div class="result-output row main-result" id="result-total-cost">
                         <p class="result-section-title">{{page.FCRLabel}}</p>
-                        <p class="result-value text-center">
+                        <p class="result-value text-center p-5">
                             <span class="value"><span class="generated" id="result_FCR">65</span></span>
                             <span class="post-unit">{{page.percentUnitPost}}</span>
                         </p>
                     </div>
 
                     <!-- Estimated results with Apizee -->
-                    <div class="row result-savings tiles">
+                    <div class="row result-savings tiles p-2">
                         <p class="result-section-title">{{page.results_fcr_increase_title}}</p>
-                        <div class="row">
-                            <!-- Savings -->
-                            <div class="result-output col-lg p-3 m-1 align-middle">
-
-
+                        <div class="row p-1">
+                            
+                            <div class="result-output col-lg-5">
+                                <p class="result-data-title">{{page.estimatedFCRIncreaseLabel}}</p>
+                            </div>
+                            <div class="result-output col-lg-2">
+                                👉
+                            </div>
+                            <div class="result-output col-lg-5">
                                 <p class="result-value">
                                     <span class="value generated" id="result_fcr_increase_pts">+9.1</span>
                                     <span class="post-unit">{{page.ptsUnitPost}}</span><br />
                                     <span class="complement">
                                         (<span class="value generated" id="result_fcr_increase_percent">+14</span>
                                         <span class="post-unit">{{page.percentUnitPost}}</span>)</span>
-
                                 </p>
 
                             </div>
-                            <div class="result-output col-lg p-3 m-1 align-middle">
+                        </div>
+                        <div class="row p-1">
+                            <!-- Savings -->
+                            
+                            <div class="result-output col-lg-5">
+                                <p class="result-data-title">{{page.estimatedFCRTargetLabel}}</p>
+                            </div>
+                            <div class="result-output col-lg-2">
+                                👉
+                            </div>
+                            <div class="result-output col-lg-5">
                                 <p class="result-value">
                                     <span class="value generated" id="result_fcr_target">74.4</span>
                                     <span class="post-unit">{{page.percentUnitPost}}</span>
                                 </p>
                             </div>
-                            </div>
-                            <div class="row">
-                            <div class="result-output col-lg">
-                                <p class="result-data-title">{{page.estimatedFCRIncreaseLabel}}</p>
-                            </div>
-                            <div class="result-output col-lg">
-                                <p class="result-data-title">{{page.estimatedFCRTargetLabel}}</p>
-                            </div>
-
                         </div>
                     </div>
-
-
                 </div>
             </div>
         </div>

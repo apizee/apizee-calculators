@@ -18,9 +18,13 @@ title: CSS Stylesheet
         padding-top: 15px;
         padding-bottom: 15px;
     }
+
+    .result-section-title {
+        font-size: 1.5em;
+    }
 }
 
-.result-savings {
+.result-savings.tiles {
 
     .row {
         margin-bottom: 0px;
@@ -28,22 +32,28 @@ title: CSS Stylesheet
 
     .result-section-title {
         margin-bottom: 0;
-        margin-top: 0.8rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        font-size: 1em;
+        font-weight: normal;
         color: main.$light-dark;
     }
 
     .result-output {
+        padding:0;
 
 
         .result-data-title {
-            font-size: 1.4em;
+            font-size: 0.8em;
+            color: main.$dark;
+            text-align: right;
         }    
 
         .result-value {
             color: main.$primary-color;
-            margin-bottom: 0    ;
+            margin-bottom: 0;
+            font-size: 1em;
             .complement {
-                font-size: 0.8em;
                 font-weight: normal;
                 color: main.$light-dark;
             }

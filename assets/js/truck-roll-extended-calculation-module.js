@@ -3,9 +3,9 @@ class TruckRollExtendedCalculation {
     /**
      * 
      * @param {Object[]} inputArray 
-     * @param {string} inputArray.id id of the form input
-     * @param {Number} inputArray.currentValue value for the input
-     * @param {Number} inputArray.defaultValue 
+     * @param {string} inputArray[].id id of the form input
+     * @param {Number} inputArray[].currentValue value for the input
+     * @param {Number} inputArray[].defaultValue 
      */
     constructor(inputArray) {
 

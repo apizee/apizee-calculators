@@ -37,7 +37,7 @@ curl -fsSL https://bun.sh/install | bash
 ### Run the tests
 
 ```bash
-bun test
+bun --watch test
 ```
 
 ### How to generate a build of the site
