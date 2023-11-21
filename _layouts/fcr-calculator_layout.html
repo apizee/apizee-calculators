@@ -28,15 +28,16 @@
                     <form id="fcr-form" class="p-3 mt-4 needs-validation" novalidate>
 
                         <div class="row">
-                            <h3><label for="total-no-incidents">{{page.noIncidentsLabel}}:</label></h3>
+                            <h3><label for="total-no-incidents-opened">{{page.noIncidentsLabel}}:</label></h3>
                             <div class="input-group">
-                                <input type="number" class="form-control" id="total-no-incidents"
-                                    name="total-no-incidents" placeholder="{{page.noIncidentsExample}}"
+                                <input type="number" class="form-control" id="total-no-incidents-opened"
+                                    name="total-no-incidents-opened" placeholder="{{page.noIncidentsExample}}"
                                     aria-describedby="totalNoIncidentsHelp" value="" min="0" required>
-                            </div>
-                            <div class="invalid-feedback">
-                                {{page.errorMsgGTZero}}
-                            </div>
+                                    <div class="invalid-feedback">
+                                        {{page.errorMsgGTZero}}
+                                    </div>
+         
+                                </div>
                             <small id="totalNoIncidentsHelp"
                                 class="form-text text-muted">{{page.noIncidentsHint}}</small>
                         </div>
@@ -48,10 +49,11 @@
                                 <input type="number" class="form-control" id="total-no-incidents-resolved"
                                     name="total-no-incidents-resolved" placeholder="{{page.noIncidentsResolvedExample}}"
                                     aria-describedby="totalNoIncidentsHelp" value="" min="0" required>
+                                    <div class="invalid-feedback">
+                                        {{page.errorMsgShouldBeLessThanOpenedTickets}}
+                                    </div>
                             </div>
-                            <div class="invalid-feedback">
-                                {{page.errorMsgGTZero}}
-                            </div>
+                            
                             <small id="totalNoIncidentsHelp"
                                 class="form-text text-muted">{{page.noIncidentsResolvedHint}}</small>
 
@@ -62,10 +64,11 @@
                                 <input type="number" class="form-control" id="total-no-incidents-reopened"
                                     name="total-no-incidents-reopened" placeholder="{{page.noIncidentsReopenedExample}}"
                                     aria-describedby="totalNoIncidentsReopenedHelp" value="" min="0" required>
-                            </div>
-                            <div class="invalid-feedback">
-                                {{page.errorMsgGTZero}}
-                            </div>
+                                    <div class="invalid-feedback">
+                                        {{page.errorMsgShouldBeLessThanResolvedTickets}}
+                                    </div>
+                                </div>
+                            
                             <small id="totalNoIncidentsReopenedHelp"
                                 class="form-text text-muted">{{page.noIncidentsReopenedHint}}</small>
                         </div>
@@ -84,7 +87,7 @@
                     <div class="result-output row main-result" id="result-total-cost">
                         <p class="result-section-title">{{page.FCRLabel}}</p>
                         <p class="result-value text-center p-5">
-                            <span class="value"><span class="generated" id="result_FCR">65</span></span>
+                            <span class="value"><span class="generated" id="result_fcr">65</span></span>
                             <span class="post-unit">{{page.percentUnitPost}}</span>
                         </p>
                     </div>
@@ -134,12 +137,12 @@
     </div>
     {% include external_libs.html %}
 
-    <script src="{{site.baseurl}}/assets/js/fcr-extended-script.js" type="module"></script>
+    <script src="{{site.baseurl}}/assets/js/fcr-script.js" type="module"></script>
 
     <script>
         //Init on load
         window.addEventListener("load", (event) => {
-            window.populateTruckRollCosts('{{page.lang}}')
+            window.populateFCRResults('{{page.lang}}')
         });
 
     </script>
