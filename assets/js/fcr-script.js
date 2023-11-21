@@ -78,8 +78,6 @@ function crossValidation() {
     //tickets resolved must be less than number of tickets opened 
     if(parseInt($("#total-no-incidents-resolved").val()) > parseInt($("#total-no-incidents-opened").val())){
         $("#total-no-incidents-resolved").addClass("is-invalid").removeClass("is-valid")
-        $("#total-no-incidents-opened").addClass("is-valid")
-
         boolReturn = false
     } else {
         $("#total-no-incidents-resolved").removeClass("is-invalid").addClass("is-valid")
