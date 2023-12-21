@@ -22,10 +22,9 @@
             </div>
         </div>
         <div class="row">
-
             <div class="col-lg-6">
-                <div class="shadow input">
-                    <form id="fcr-form" class="p-3 mt-4 needs-validation" novalidate>
+                <div class="input">
+                    <form id="fcr-form" class="p-3 needs-validation" novalidate>
 
                         <div class="row">
                             <h3><label for="total-no-incidents-opened">{{page.noIncidentsLabel}}:</label></h3>
@@ -78,15 +77,12 @@
                     </form>
                     <div id="error-message" class="mt-4 text-danger"></div>
                 </div>
-                {% include share_buttons.html %}
             </div>
-            <div class="col-lg-6">
-                <div id="results" class="p-3" aria-live="polite">
-
+            <div class="col-lg-6 pt-4 pb-4" id="results" aria-live="polite">
                     <!-- FCR -->
-                    <div class="result-output row main-result" id="result-total-cost">
+                    <div class="result-output row main-result m-3" id="result-total-cost">
                         <p class="result-section-title">{{page.FCRLabel}}</p>
-                        <p class="result-value text-center p-5">
+                        <p class="result-value text-center p-1">
                             <span class="value"><span class="generated" id="result_fcr"></span></span>
                             <span class="post-unit">{{page.percentUnitPost}}</span>
                         </p>
@@ -94,16 +90,18 @@
 
                     <!-- Estimated results with Apizee -->
                     <div class="row result-savings tiles p-2">
-                        <p class="result-section-title">{{page.results_fcr_increase_title}}</p>
+                        <div class="col">
                         <div class="row p-1">
-                            
-                            <div class="result-output col-lg-5">
+                            <p class="result-section-title">{{page.results_fcr_increase_title}}</p>
+                        </div>
+                        <div class="row p-1">                            
+                            <div class="result-output col-5">
                                 <p class="result-data-title">{{page.estimatedFCRIncreaseLabel}}</p>
                             </div>
-                            <div class="result-output col-lg-2">
+                            <div class="result-output col-2">
                                 👉
                             </div>
-                            <div class="result-output col-lg-5">
+                            <div class="result-output col-5">
                                 <p class="result-value">
                                     <span class="value generated" id="result_fcr_increase_pts"></span>
                                     <span class="post-unit">{{page.ptsUnitPost}}</span><br />
@@ -117,13 +115,13 @@
                         <div class="row p-1">
                             <!-- Savings -->
                             
-                            <div class="result-output col-lg-5">
+                            <div class="result-output col-5">
                                 <p class="result-data-title">{{page.estimatedFCRTargetLabel}}</p>
                             </div>
-                            <div class="result-output col-lg-2">
+                            <div class="result-output col-2">
                                 👉
                             </div>
-                            <div class="result-output col-lg-5">
+                            <div class="result-output col-5">
                                 <p class="result-value">
                                     <span class="value generated" id="result_fcr_target"></span>
                                     <span class="post-unit">{{page.percentUnitPost}}</span>
@@ -131,8 +129,12 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                    </div>
+                
             </div>
+        </div>
+        <div class="row">
+            {% include share_buttons.html %}
         </div>
     </div>
     {% include external_libs.html %}

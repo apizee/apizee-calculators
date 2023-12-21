@@ -21,7 +21,8 @@ class FCRExtendedCalculation extends BaseCalculation {
     }
 
     get result_fcr(){
-        return (this.fcr * 100).toFixed(0)
+        let value = (this.fcr * 100)
+        return isNaN(value) ? "-" : value.toFixed(0)
     }
 
     get fcr_increase_pts() {
@@ -29,24 +30,26 @@ class FCRExtendedCalculation extends BaseCalculation {
     }
 
     get result_fcr_increase_pts(){
-        return (this.fcr_increase_pts * 100).toFixed(1)
+        let value = (this.fcr_increase_pts * 100)
+        return isNaN(value) ? "-" : value.toFixed(1)
     }
 
     get result_fcr_target(){
-        return (this.fcr * (1 + FCRExtendedCalculation.APIZEE_FCR_INCREASE_PERCENT) * 100).toFixed(0)
+        let value = (this.fcr * (1 + FCRExtendedCalculation.APIZEE_FCR_INCREASE_PERCENT) * 100)
+        return isNaN(value) ? "-" : value.toFixed(1)
     }
 
     get result_fcr_increase_percent(){
-        return "+"+(FCRExtendedCalculation.APIZEE_FCR_INCREASE_PERCENT*100).toFixed(0)
+        return isNaN(this.fcr) ? "-" :  "+"+(FCRExtendedCalculation.APIZEE_FCR_INCREASE_PERCENT*100).toFixed(0)
     }
 }
 
 FCRExtendedCalculation.APIZEE_FCR_INCREASE_PERCENT = 0.14
 
 FCRExtendedCalculation.EXPECTED_DEFAULT_VALUES = [
-    {id:'total-no-incidents-opened', defaultValue:100},
-    {id:'total-no-incidents-resolved', defaultValue: 80},
-    {id:'total-no-incidents-reopened', defaultValue:20}
+    {id:'total-no-incidents-opened', defaultValue:0},
+    {id:'total-no-incidents-resolved', defaultValue: 0},
+    {id:'total-no-incidents-reopened', defaultValue:0}
 ]
  
 export default FCRExtendedCalculation;

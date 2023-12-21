@@ -56,7 +56,7 @@ test("Missing CurrentValue", () => {
 
     let extension = new FCRCalculation(inputWithMissingValue, validExpectedInput)
 
-    expect(extension.values['total-no-incidents-opened']).toBe(parseInt(validExpectedInput[0].defaultValue))
+    expect(extension.values['total-no-incidents-opened']).toBe(parseInt(FCRCalculation.EXPECTED_DEFAULT_VALUES[0].defaultValue))
 
 })
 
@@ -79,5 +79,5 @@ test("Correct target FCR result", () => {
 
     let extension = new FCRCalculation(validExpectedInput)
 
-    expect(extension.result_fcr_target).toBe("64")
+    expect(extension.result_fcr_target).toBe("64.1")
 })

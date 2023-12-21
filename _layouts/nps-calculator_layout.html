@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="{{page.lang}}">
+<!-- Version Number : 1.0 -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% include favicons.html %}
+    {% include external_css.html %}
+
+    <link rel="stylesheet" href="{{site.baseurl}}/assets/css/nps_style.css">
+
+    <title>{{page.title}}</title>
+</head>
+
+<body>
+    <div class="container container-box p-3">
+        <div>
+            <div class="col-lg-6">
+                <h2>{{page.CTA}}</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="input">
+                    <form id="nps-form" class="p-3 needs-validation" novalidate>
+
+                        <!-- Promoters Row -->
+                        <div class="row">
+                            <h3><label for="total-no-promoters">{{page.noPromotersLabel}}:</label></h3>
+                            <div class="input-group">
+                                <input type="number" class="form-control" id="total-no-promoters"
+                                    name="total-no-promoters" placeholder="{{page.noPromotersExample}}"
+                                    aria-describedby="totalNoPromotersHelp" value="" min="0" required>
+                                <div class="invalid-feedback">
+                                    {{page.errorMsgGTZero}}
+                                </div>
+                            </div>
+                            <small id="totalNoPromotersHelp"
+                                class="form-text text-muted">{{page.noPromotersHint}}</small>
+                        </div>
+
+                        <!-- Passives Row -->
+                        <div class="row">
+                            <h3><label for="total-no-passives">{{page.noPassivesLabel}}:</label></h3>
+                            <div class="input-group">
+                                <input type="number" class="form-control" id="total-no-passives"
+                                    name="total-no-passives" placeholder="{{page.noPassivesExample}}"
+                                    aria-describedby="totalNoPassivesHelp" value="" min="0" required>
+                                <div class="invalid-feedback">
+                                    {{page.errorMsgGTZero}}
+                                </div>
+                            </div>
+                            <small id="totalNoPassivesHelp" class="form-text text-muted">{{page.noPassivesHint}}</small>
+                        </div>
+
+                        <!-- Detractors Row -->
+                        <div class="row">
+                            <h3><label for="total-no-detractors">{{page.noDetractorsLabel}}:</label></h3>
+                            <div class="input-group">
+                                <input type="number" class="form-control" id="total-no-detractors"
+                                    name="total-no-detractors" placeholder="{{page.noDetractorsExample}}"
+                                    aria-describedby="totalNoDetractorsHelp" value="" min="0" required>
+                                <div class="invalid-feedback">
+                                    {{page.errorMsgGTZero}}
+                                </div>
+                            </div>
+                            <small id="totalNoDetractorsHelp"
+                                class="form-text text-muted">{{page.noDetractorsHint}}</small>
+                        </div>
+
+
+                        <button class="btn btn-primary btn-cta" type="submit">{{page.formButton}}</button>
+
+                    </form>
+                    <div id="error-message" class="mt-4 text-danger"></div>
+                </div>
+            </div>
+            <div class="col-lg-6 pt-4 pb-4" id="results" aria-live="polite">
+                <!-- NPS -->
+                <div class="result-output row main-result m-3" id="result-nps-score">
+                    <p class="result-section-title">{{page.nps_score_label}}</p>
+                    <p class="result-value text-center p-1">
+                        <span class="value"><span class="generated" id="result_nps"></span></span>
+                        <span class="post-unit">%</span>
+                    </p>
+                </div>
+                <div class="result-output row justify-content-center" id="result-appreciation">
+                    <div class="col-6">
+                        <div class="status" id="excellent">{{page.appreciationExcellent}}</div>
+                        <div class="status" id="great">{{page.appreciationGreat}}</div>
+                        <div class="status" id="good">{{page.appreciationGood}}</div>
+                        <div class="status" id="need-improvment">{{page.appreciationNeedImprovment}}</div>
+                    </div>
+                </div>
+                <div class="result-output row m-3" id="result-total-respondents">
+                    <p class="result-section-title">{{page.total_respondents_label}}</p>
+                    <p class="result-value text-center p-1">
+                        <span class="value"><span class="generated" id="result_total_respondents"></span></span>
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="row">
+            {% include share_buttons.html %}
+        </div>
+    </div>
+    {% include external_libs.html %}
+
+    <script src="{{site.baseurl}}/assets/js/nps-script.js" type="module"></script>
+
+    <script>
+        //Init on load
+        window.addEventListener("load", (event) => {
+            window.populateNPSResults('{{page.lang}}')
+        });
+
+    </script>
+</body>
+
+</html>

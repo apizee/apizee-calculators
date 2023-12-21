@@ -9,23 +9,23 @@ title: CSS Stylesheet
     );
 
 
-.main-result {
 
-    .result-value {
-        background-color: none;
-        color: main.$primary-color;
-    }
-
-    .result-section-title {
-        font-size: 1.4em;
-    }
-}
 
 #results {
     background-color: main.$tertiary-color;
-}
 
-.result-savings.tiles {
+    .main-result {
+
+        .result-value {
+            background-color: none;
+            color: main.$primary-color;
+        }
+    
+        .result-section-title {
+            font-size: 1.4em;
+            font-weight: bold;
+        }
+    }
 
     .row {
         margin-bottom: 0px;
@@ -44,6 +44,10 @@ title: CSS Stylesheet
         padding:0;
         font-size: 0.9em;
 
+        .result-section-title {
+            text-align: left;
+            font-weight: bold;
+        }
 
         .result-data-title {
             
@@ -61,6 +65,26 @@ title: CSS Stylesheet
                 font-size: 0.6em;
                 color: main.$light-dark;
             }
+        }
+
+        .status{
+            border-radius: 10px;
+            color: #FFF;
+            font-size: 1.3em;
+            font-weight: bolder ;
+        }
+
+        #excellent {
+            background-color: darkgreen;
+        }
+        #great {
+            background-color: green;
+        }
+        #need-improvment {
+            background-color: red;
+        }
+        #good {
+            background-color: orange;
         }
     }
 }
