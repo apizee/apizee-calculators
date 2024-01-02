@@ -100,29 +100,6 @@ function populateTruckRollCosts(lang) {
     return postBody
 }
 
-function sendData(body){
-    
-    const today = new Date(Date.now())
-    body['date'] = today.toISOString()
-
-    let apiUrl = 'https://hooks.zapier.com/hooks/catch/436453/38gok76/'
-
-    let requestOptions = {method: 'POST', body: JSON.stringify(body)}
-    
-
-    // Send the POST request
-    fetch(apiUrl, requestOptions)
-        .then((response) => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-        })
-        .catch((error) => {
-            // Handle any errors that occurred during the fetch
-            console.error('Fetch error:', error);
-        });  
-}
-
 // Event handler on for submit
 let form = document.getElementById("truck-roll-form")
 form.addEventListener('submit', event => {

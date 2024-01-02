@@ -51,9 +51,9 @@ class NPSExtendedCalculation extends BaseCalculation {
 }
 
 NPSExtendedCalculation.EXPECTED_DEFAULT_VALUES = [
-    {id:'total-no-promoters', defaultValue:0},
-    {id:'total-no-passives', defaultValue: 0},
-    {id:'total-no-detractors', defaultValue:0}
+    {id:'total-no-promoters', defaultValue:""},
+    {id:'total-no-passives', defaultValue: ""},
+    {id:'total-no-detractors', defaultValue:""}
 ]
 
 NPSExtendedCalculation.NPS_LEVELS = {

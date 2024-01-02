@@ -17,7 +17,6 @@ function populateNPSResults(lang) {
     let collectedValuesFromDOM = {}
     collectedValuesFromDOM["lang"] = currentLanguage
 
-
     let inputArray = NPSCalculation.EXPECTED_DEFAULT_VALUES
 
     //Retrieve the value of all the input elements specified in the expectedInput array
@@ -48,8 +47,8 @@ function populateNPSResults(lang) {
         var newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?' + queryString;
         window.history.pushState({ path: newurl }, '', newurl);
     }
-    console.log(inputArray)
-    // instanciate the Calulation module
+
+    // Instanciate the Calculation module
     let calculationModule = new NPSCalculation(inputArray)
 
 
@@ -68,13 +67,14 @@ function populateNPSResults(lang) {
         }
     });
 
+    // Initialize the NPS level status
     $(".nps_level").css("display","none");
     $(".nps_level#"+calculationModule['nps_level']).css("display","inline");
 
     return collectedValuesFromDOM
 }
 
-// Event handler on for submit
+// Event handler on form submit
 let form = document.getElementById("nps-form")
 
 form.addEventListener('submit', event => {
@@ -97,7 +97,6 @@ form.addEventListener('submit', event => {
     event.preventDefault()
     event.stopPropagation()
 })
-
 
 
 //Way to pass the populate function to the script in the main HTML page
