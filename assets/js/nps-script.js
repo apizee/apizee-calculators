@@ -48,7 +48,7 @@ function populateNPSResults(lang) {
         var newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?' + queryString;
         window.history.pushState({ path: newurl }, '', newurl);
     }
-
+    console.log(inputArray)
     // instanciate the Calulation module
     let calculationModule = new NPSCalculation(inputArray)
 
@@ -67,6 +67,9 @@ function populateNPSResults(lang) {
             throw Error("Missing result in calculation class :" + id)
         }
     });
+
+    $(".nps_level").css("display","none");
+    $(".nps_level#"+calculationModule['nps_level']).css("display","inline");
 
     return collectedValuesFromDOM
 }

@@ -1,5 +1,7 @@
 import BaseCalculation from './base-calculation-module.js'
 
+
+
 class NPSExtendedCalculation extends BaseCalculation {
 
     /**
@@ -16,11 +18,11 @@ class NPSExtendedCalculation extends BaseCalculation {
     }
 
     get total_respondents(){
-        return this.values['total-no-promoters'] + this.values['total-no-passives'] + this.values['total-no-detractors']
+        return parseInt(this.values['total-no-promoters']) + parseInt(this.values['total-no-passives']) + parseInt(this.values['total-no-detractors'])
     }
 
     get result_total_respondents(){
-        return isNaN(this.total_respondents) ||  ? "-" : this.total_respondents.toFixed(0)
+        return isNaN(this.total_respondents) || this.total_respondents == 0 ? "-" : (this.total_respondents).toFixed(0)
     }
 
     get nps(){
@@ -30,6 +32,22 @@ class NPSExtendedCalculation extends BaseCalculation {
     get result_nps(){
        return isNaN(this.nps) ? "-" : this.nps.toFixed(0)
     }
+
+    get nps_level(){
+
+        if(this.nps < 0)
+            return NPSExtendedCalculation.NPS_LEVELS.NeedImprovment
+
+        if(this.nps < 30)
+            return NPSExtendedCalculation.NPS_LEVELS.Good
+
+        if(this.nps < 70)
+            return NPSExtendedCalculation.NPS_LEVELS.Great
+
+
+        return NPSExtendedCalculation.NPS_LEVELS.Excellent
+
+    }
 }
 
 NPSExtendedCalculation.EXPECTED_DEFAULT_VALUES = [
@@ -37,5 +55,12 @@ NPSExtendedCalculation.EXPECTED_DEFAULT_VALUES = [
     {id:'total-no-passives', defaultValue: 0},
     {id:'total-no-detractors', defaultValue:0}
 ]
+
+NPSExtendedCalculation.NPS_LEVELS = {
+	Excellent: "excellent",
+	Great: "great",
+	Good: "good",
+	NeedImprovment: "needimprovment"
+}
  
 export default NPSExtendedCalculation;

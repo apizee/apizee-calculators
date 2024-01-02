@@ -14,19 +14,6 @@ title: CSS Stylesheet
 #results {
     background-color: main.$tertiary-color;
 
-    .main-result {
-
-        .result-value {
-            background-color: none;
-            color: main.$primary-color;
-        }
-    
-        .result-section-title {
-            font-size: 1.4em;
-            font-weight: bold;
-        }
-    }
-
     .row {
         margin-bottom: 0px;
     }
@@ -46,7 +33,6 @@ title: CSS Stylesheet
 
         .result-section-title {
             text-align: left;
-            font-weight: bold;
         }
 
         .result-data-title {
@@ -56,9 +42,13 @@ title: CSS Stylesheet
         }    
 
         .result-value {
-            color: main.$primary-color;
+            color: main.$light-dark;
             margin-bottom: 0;
             text-align: left;
+
+            .value{
+                font-size: 1.2em;
+            }
 
             .complement {
                 font-weight: normal;
@@ -70,8 +60,10 @@ title: CSS Stylesheet
         .status{
             border-radius: 10px;
             color: #FFF;
-            font-size: 1.3em;
-            font-weight: bolder ;
+            font-size: 2.3em;
+            font-weight: bolder;
+            display:none;
+            padding:10px;
         }
 
         #excellent {
@@ -80,11 +72,25 @@ title: CSS Stylesheet
         #great {
             background-color: green;
         }
-        #need-improvment {
+        #needimprovment {
             background-color: red;
         }
         #good {
             background-color: orange;
+        }
+        
+    }
+    .main-result {
+
+        .result-value {
+            background-color: none;
+            color: main.$primary-color;
+            font-size: 4em;
+        }
+    
+        .result-section-title {
+            font-size: 1.4em;
+            font-weight: bold;
         }
     }
 }

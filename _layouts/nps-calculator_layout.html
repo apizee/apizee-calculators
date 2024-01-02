@@ -69,8 +69,6 @@
                             <small id="totalNoDetractorsHelp"
                                 class="form-text text-muted">{{page.noDetractorsHint}}</small>
                         </div>
-
-
                         <button class="btn btn-primary btn-cta" type="submit">{{page.formButton}}</button>
 
                     </form>
@@ -79,25 +77,22 @@
             </div>
             <div class="col-lg-6 pt-4 pb-4" id="results" aria-live="polite">
                 <!-- NPS -->
-                <div class="result-output row main-result m-3" id="result-nps-score">
+                <div class="row main-result m-3" id="result-nps-score">
                     <p class="result-section-title">{{page.nps_score_label}}</p>
                     <p class="result-value text-center p-1">
                         <span class="value"><span class="generated" id="result_nps"></span></span>
-                        <span class="post-unit">%</span>
                     </p>
                 </div>
                 <div class="result-output row justify-content-center" id="result-appreciation">
-                    <div class="col-6">
-                        <div class="status" id="excellent">{{page.appreciationExcellent}}</div>
-                        <div class="status" id="great">{{page.appreciationGreat}}</div>
-                        <div class="status" id="good">{{page.appreciationGood}}</div>
-                        <div class="status" id="need-improvment">{{page.appreciationNeedImprovment}}</div>
+                    <div class="col">
+                        <div class="status nps_level" id="excellent">{{page.appreciationExcellent}}</div>
+                        <div class="status nps_level" id="great">{{page.appreciationGreat}}</div>
+                        <div class="status nps_level" id="good">{{page.appreciationGood}}</div>
+                        <div class="status nps_level" id="needimprovment">{{page.appreciationNeedImprovment}}</div>
                     </div>
                 </div>
                 <div class="result-output row m-3" id="result-total-respondents">
-                    <p class="result-section-title">{{page.total_respondents_label}}</p>
-                    <p class="result-value text-center p-1">
-                        <span class="value"><span class="generated" id="result_total_respondents"></span></span>
+                    <p class="result-section-title">{{page.total_respondents_label}} <span class="value"><span class="generated" id="result_total_respondents"></span></span>
                     </p>
                 </div>
 

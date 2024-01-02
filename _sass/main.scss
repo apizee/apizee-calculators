@@ -219,13 +219,14 @@ small {
     font-weight: bold;
 }
 
-
 form {
 
     border-radius: 15px;
 
     .btn-cta,
-    .btn-cta:hover {
+    .btn-cta:hover,
+    .btn-cta:active, 
+    .btn-cta:focus {
         background-color: $primary-color;
         border: none;
         width: 100%;
