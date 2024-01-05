@@ -35,6 +35,9 @@ class NPSExtendedCalculation extends BaseCalculation {
 
     get nps_level(){
 
+        if(isNaN(this.nps))
+            return NPSExtendedCalculation.NPS_LEVELS.None
+
         if(this.nps < 0)
             return NPSExtendedCalculation.NPS_LEVELS.NeedImprovment
 
@@ -60,7 +63,8 @@ NPSExtendedCalculation.NPS_LEVELS = {
 	Excellent: "excellent",
 	Great: "great",
 	Good: "good",
-	NeedImprovment: "needimprovment"
+	NeedImprovment: "needimprovment", 
+    None:"none"
 }
  
 export default NPSExtendedCalculation;

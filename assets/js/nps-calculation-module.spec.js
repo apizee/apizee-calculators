@@ -8,6 +8,12 @@ let validExpectedInput = [
     {id:'total-no-detractors', currentValue:20}
 ]
 
+let noneExpectedInput = [
+    {id:'total-no-promoters', currentValue:""},
+    {id:'total-no-passives', currentValue: ""},
+    {id:'total-no-detractors', currentValue:""}
+]
+
 let goodExpectedInput = [
     {id:'total-no-promoters', currentValue:50},
     {id:'total-no-passives', currentValue: 50},
@@ -82,7 +88,7 @@ test("Missing CurrentValue", () => {
 
     let extension = new NPSCalculation(inputWithMissingValue, validExpectedInput)
 
-    expect(extension.values['total-no-promoters']).toBe(parseInt(NPSCalculation.EXPECTED_DEFAULT_VALUES[0].defaultValue))
+    expect(extension.values['total-no-promoters']).toBe(NPSCalculation.EXPECTED_DEFAULT_VALUES[0].defaultValue)
 
 })
 
@@ -111,6 +117,10 @@ test("Corresponding NPS Levels", () => {
     extension = new NPSCalculation(excellentExpectedInput)
     expect(extension.result_nps).toBe("83")
     expect(extension.nps_level).toBe(NPSCalculation.NPS_LEVELS.Excellent)
+
+    extension = new NPSCalculation(noneExpectedInput)
+    expect(extension.result_nps).toBe("-")
+    expect(extension.nps_level).toBe(NPSCalculation.NPS_LEVELS.None)
 })
 
 test("Correct total respondents result", () => {
