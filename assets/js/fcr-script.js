@@ -68,7 +68,7 @@ function populateFCRResults(lang) {
         }
     });
 
-    return collectedValuesFromDOM
+    return {...collectedValuesFromDOM, ...calculationModule.values}
 }
 
 function crossValidation() {
@@ -111,8 +111,8 @@ form.addEventListener('submit', event => {
        let data = populateFCRResults()
 
        setTimeout((data) =>{
-//            const sender = new PostSender("https://hooks.zapier.com/hooks/catch/436453/38gok76/")
-//            sender.postData(data)
+            const sender = new PostSender("https://hooks.zapier.com/hooks/catch/436453/3w52vtb/")
+            sender.postData(data)
        }, 1000, data)
     }
 
