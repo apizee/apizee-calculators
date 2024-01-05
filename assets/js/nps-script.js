@@ -17,7 +17,7 @@ function populateNPSResults(lang) {
     let collectedValuesFromDOM = {}
     collectedValuesFromDOM["lang"] = currentLanguage
 
-    let inputArray = NPSCalculation.EXPECTED_DEFAULT_VALUES
+    let inputArray = NPSCalculation.EXPECTED_DEFAULT_INPUT_VALUES
 
     //Retrieve the value of all the input elements specified in the expectedInput array
     inputArray.forEach((input, index) => {
@@ -71,7 +71,7 @@ function populateNPSResults(lang) {
     $(".nps_level").css("display","none");
     $(".nps_level#"+calculationModule['nps_level']).css("display","inline");
 
-    return collectedValuesFromDOM
+    return {...collectedValuesFromDOM, ...calculationModule.values}
 }
 
 // Event handler on form submit
@@ -89,8 +89,8 @@ form.addEventListener('submit', event => {
        let data = populateNPSResults()
 
        setTimeout((data) =>{
-//            const sender = new PostSender("https://hooks.zapier.com/hooks/catch/436453/38gok76/")
-//            sender.postData(data)
+            const sender = new PostSender("https://hooks.zapier.com/hooks/catch/436453/3w9vkm6/")
+            sender.postData(data)
        }, 1000, data)
     }
 

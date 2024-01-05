@@ -88,7 +88,7 @@ test("Missing CurrentValue", () => {
 
     let extension = new NPSCalculation(inputWithMissingValue, validExpectedInput)
 
-    expect(extension.values['total-no-promoters']).toBe(NPSCalculation.EXPECTED_DEFAULT_VALUES[0].defaultValue)
+    expect(extension.values['total-no-promoters']).toBe(NPSCalculation.EXPECTED_DEFAULT_INPUT_VALUES[0].defaultValue)
 
 })
 

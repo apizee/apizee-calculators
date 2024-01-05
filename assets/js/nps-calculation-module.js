@@ -14,7 +14,7 @@ class NPSExtendedCalculation extends BaseCalculation {
      */
     constructor(inputArray){
 
-        super(inputArray, NPSExtendedCalculation.EXPECTED_DEFAULT_VALUES)
+        super(inputArray, NPSExtendedCalculation.EXPECTED_DEFAULT_INPUT_VALUES)
     }
 
     get total_respondents(){
@@ -53,7 +53,7 @@ class NPSExtendedCalculation extends BaseCalculation {
     }
 }
 
-NPSExtendedCalculation.EXPECTED_DEFAULT_VALUES = [
+NPSExtendedCalculation.EXPECTED_DEFAULT_INPUT_VALUES = [
     {id:'total-no-promoters', defaultValue:""},
     {id:'total-no-passives', defaultValue: ""},
     {id:'total-no-detractors', defaultValue:""}
