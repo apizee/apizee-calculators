@@ -26,21 +26,26 @@ class FCRExtendedCalculation extends BaseCalculation {
     }
 
     get fcr_increase_pts() {
-        return this.fcr * FCRExtendedCalculation.APIZEE_FCR_INCREASE_PERCENT
+        return this.fcr_target-this.fcr
+    }
+
+    get fcr_target(){
+        return Math.min(this.fcr * (1 + FCRExtendedCalculation.APIZEE_FCR_INCREASE_PERCENT), 1)
     }
 
     get result_fcr_increase_pts(){
         let value = (this.fcr_increase_pts * 100)
-        return isNaN(value) ? "-" : value.toFixed(1)
+        return isNaN(value) ? "-" : "+"+value.toFixed(1)
     }
 
     get result_fcr_target(){
-        let value = (this.fcr * (1 + FCRExtendedCalculation.APIZEE_FCR_INCREASE_PERCENT) * 100)
+        let value = this.fcr_target * 100
         return isNaN(value) ? "-" : value.toFixed(1)
     }
 
     get result_fcr_increase_percent(){
-        return isNaN(this.fcr) ? "-" :  "+"+(FCRExtendedCalculation.APIZEE_FCR_INCREASE_PERCENT*100).toFixed(0)
+        let value = ((this.fcr_target/this.fcr) - 1)*100
+        return isNaN(this.fcr) ? "-" :  "+"+ value.toFixed(0)
     }
 }
 

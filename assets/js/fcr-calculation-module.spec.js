@@ -7,6 +7,12 @@ let validExpectedInput = [
     { id: 'total-no-incidents-resolved', defaultValue: 80, currentValue: 75 },
     { id: 'total-no-incidents-reopened', defaultValue: 20, currentValue: 30 }]
 
+let validOutOfScopeTargetInput = [
+    { id: 'total-no-incidents-opened', defaultValue: 100, currentValue: 100 },
+    { id: 'total-no-incidents-resolved', defaultValue: 80, currentValue: 99 },
+    { id: 'total-no-incidents-reopened', defaultValue: 20, currentValue: 9 }]
+
+
 let inputWithMissingField = [
     { id: 'total-no-incidents-resolved', currentValue: 75 },
     { id: 'total-no-incidents-reopened', currentValue: 30 }]
@@ -72,12 +78,35 @@ test("Correct FCR increase in pts result", () => {
 
     let extension = new FCRCalculation(validExpectedInput)
 
-    expect(extension.result_fcr_increase_pts).toBe("7.9")
+    expect(extension.result_fcr_increase_pts).toBe("+7.9")
 })
+
 
 test("Correct target FCR result", () => {
 
     let extension = new FCRCalculation(validExpectedInput)
 
     expect(extension.result_fcr_target).toBe("64.1")
+})
+
+
+test("When target exceed 100%, return 100%", () => {
+
+    let extension = new FCRCalculation(validOutOfScopeTargetInput)
+
+    expect(extension.result_fcr_target).toBe("100.0")
+})
+
+
+test("Correct FCR increase in pts result, when target is over 100%", () => {
+
+    let extension = new FCRCalculation(validOutOfScopeTargetInput)
+
+    expect(extension.result_fcr_increase_pts).toBe("+10.0")
+})
+
+test("Correct FCR increase in percentage, when target is over 100%", () => {
+
+    let extension = new FCRCalculation(validOutOfScopeTargetInput)
+    expect(extension.result_fcr_increase_percent).toBe("+11")
 })
