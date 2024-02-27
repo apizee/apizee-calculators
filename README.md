@@ -2,8 +2,7 @@
 
 Here are some costs and savings calculators in the fields addressed by Apizee solutions.
 
-- [Truck Roll Cost Calculator](https://apizee.github.io/apizee-calculators/truck-roll-calculator/)
-- [Truck Roll Cost Calculator (extended)](https://apizee.github.io/apizee-calculators/truck-roll-calculator-extended/en/)
+- [Démo](https://apizee.github.io/apizee-calculators)
 
 ## Requirements
 

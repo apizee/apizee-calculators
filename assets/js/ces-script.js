@@ -22,17 +22,19 @@ function populateCESResults(lang) {
     //Retrieve the value of all the input elements specified in the expectedInput array
     inputArray.forEach((input, index) => {
 
-        // If no value found, complete the form with the searchQuery or default value
-        if ($("#" + input.id).val() == "") {
+        // If there is no value in form , complete the form with the searchQuery or default value
+        if ($("#" + input.id).val() === "") {
             if (!searchParams.has(input.id)) {
+                console.log("search param undefined")
                 $("#" + input.id).val(input.defaultValue)
-            } else {
+            }else{
+                console.log("search param found")
                 $("#" + input.id).val(searchParams.get(input.id))
             }
         }
 
         //Retrieve the expectedInput array with the value 
-        inputArray[index].currentValue = $("#" + input.id).val()
+        inputArray[index].currentValue = $("#" + input.id).val() === "" ? 0 : $("#" + input.id).val()
     })
 
 
