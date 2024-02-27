@@ -8,3 +8,4 @@
 - Truck roll Cost (extended) [EN]({{site.baseurl}}/truck-roll-calculator-extended/en) / [FR]({{site.baseurl}}/truck-roll-calculator-extended/fr)
 - FCR Calculator [EN]({{site.baseurl}}/fcr-calculator/en.html)/[FR]({{site.baseurl}}/fcr-calculator/fr.html)
 - NPS Calculator [EN]({{site.baseurl}}/nps-calculator/en.html)/[FR]({{site.baseurl}}/nps-calculator/fr.html)
+- CES Calculator [EN]({{site.baseurl}}/ces-calculator/en.html)/[FR]({{site.baseurl}}/ces-calculator/fr.html)

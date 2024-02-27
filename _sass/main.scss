@@ -219,6 +219,23 @@ small {
     font-weight: bold;
 }
 
+.btn-primary {
+	--bs-btn-color: #fff;
+	--bs-btn-bg: $primary-color;
+	--bs-btn-border-color: $primary-color;
+	--bs-btn-hover-color: #fff;
+	--bs-btn-hover-bg: $primary-color;
+	--bs-btn-hover-border-color: $primary-color;
+	--bs-btn-focus-shadow-rgb: 49,132,253;
+	--bs-btn-active-color: $primary-color;
+	--bs-btn-active-bg: $primary-color;
+	--bs-btn-active-border: 3px $primary-color;
+	--bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+	--bs-btn-disabled-color: #fff;
+	--bs-btn-disabled-bg: $primary-color;
+	--bs-btn-disabled-border-color: $primary-color;
+}
+
 form {
 
     border-radius: 15px;

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="{{page.lang}}">
+<!-- Version Number : 1.0 -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% include favicons.html %}
+    {% include external_css.html %}
+
+    <link rel="stylesheet" href="{{site.baseurl}}/assets/css/ces_style.css">
+
+    <title>{{page.title}}</title>
+</head>
+
+<body>
+    <div class="container container-box p-3">
+        <div>
+            <div class="col-lg-8">
+                <h2>{{page.CTA}}</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg">
+                <div class="input">
+                    <form id="ces-form" class="p-3 needs-validation" novalidate>
+                        <h3><label>{{page.instructions}}:</label></h3>
+                        <small id="instructionsHint" class="form-text text-muted">{{page.hintOnWhatIsCES}}</small>
+
+                        <div class="row inputs">
+                            <!-- Level 1 (Strongly Disagree) Row -->
+                            <div class="col-sm p-2 m-2  ">
+                                <h3><label for="total-no-level1">{{page.noLevel1Label}}</label></h3>
+                                <div class="input-group">
+                                    <input type="number" class="form-control" id="total-no-level1"
+                                        name="total-no-level1" placeholder="{{page.noLevel1Example}}"
+                                        aria-describedby="totalNoLevel1Help" value="" min="0" required>
+                                    <div class="invalid-feedback">
+                                        {{page.errorMsgGTZero}}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Level 2 (Disagree) Row -->
+                            <div class="col-sm p-2 m-2  ">
+                                <h3><label for="total-no-level2">{{page.noLevel2Label}}</label></h3>
+                                <div class="input-group">
+                                    <input type="number" class="form-control" id="total-no-level2"
+                                        name="total-no-level2" placeholder="{{page.noLevel2Example}}"
+                                        aria-describedby="totalNoLevel2Help" value="" min="0" required>
+                                    <div class="invalid-feedback">
+                                        {{page.errorMsgGTZero}}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Level 3 (Neutral) Row -->
+                            <div class="col-sm p-2 m-2">
+                                <h3><label for="total-no-level3">{{page.noLevel3Label}}</label></h3>
+                                <div class="input-group">
+                                    <input type="number" class="form-control" id="total-no-level3"
+                                        name="total-no-level3" placeholder="{{page.noLevel3Example}}"
+                                        aria-describedby="totalNoLevel3Help" value="" min="0" required>
+                                    <div class="invalid-feedback">
+                                        {{page.errorMsgGTZero}}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Level 4 (Agree) Row -->
+                            <div class="col-sm p-2 m-2  ">
+                                <h3><label for="total-no-level4">{{page.noLevel4Label}}</label></h3>
+                                <div class="input-group">
+                                    <input type="number" class="form-control" id="total-no-level4"
+                                        name="total-no-level4" placeholder="{{page.noLevel4Example}}"
+                                        aria-describedby="totalNoLevel4Help" value="" min="0" required>
+                                    <div class="invalid-feedback">
+                                        {{page.errorMsgGTZero}}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Level 5 (Strongly Agree) Row -->
+                            <div class="col-sm p-2 m-2  ">
+                                <h3><label for="total-no-level5">{{page.noLevel5Label}}</label></h3>
+                                <div class="input-group">
+                                    <input type="number" class="form-control" id="total-no-level5"
+                                        name="total-no-level5" placeholder="{{page.noLevel5Example}}"
+                                        aria-describedby="totalNoLevel5Help" value="" min="0" required>
+                                    <div class="invalid-feedback">
+                                        {{page.errorMsgGTZero}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+
+                            <button class="btn btn-primary btn-cta" type="submit">{{page.formButton}}</button>
+
+                    </form>
+                    <div id="error-message" class="mt-4 text-danger"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg pt-4 pb-4" id="results" aria-live="polite">
+                <!-- CES -->
+                <div class="row main-result m-3" id="result-ces-score">
+                    <p class="result-section-title">{{page.ces_score_label}}</p>
+                    <p class="result-value text-center ">
+                        <span class="value"><span class="generated" id="result_ces">25%</span>
+                        <span class="ces_level" id="smiley_good">{{page.smiley_good}}</span>
+                        <span class="ces_level" id="smiley_average">{{page.smiley_average}}</span>
+                        <span class="ces_level" id="smiley_ad">{{page.smiley_bad}}</span>
+                        <span class="ces_level" id="smiley_none"></span></span>
+                    </p>
+                    <p class="result-section-title feedback" id="feedback_bad">{{page.feedback_bad}}</p>
+                    <p class="result-section-title feedback" id="feedback_average">{{page.feedback_average}}</p>
+                    <p class="result-section-title feedback" id="feedback_good">{{page.feedback_good}}</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+            {% include share_buttons.html %}
+        </div>
+    </div>
+    {% include external_libs.html %}
+
+    <script src="{{site.baseurl}}/assets/js/ces-script.js" type="module"></script> 
+
+    <script>
+        //Init on load
+        window.addEventListener("load", (event) => {
+            window.populateCESResults('{{page.lang}}')
+        });
+
+    </script>
+</body>
+
+</html>

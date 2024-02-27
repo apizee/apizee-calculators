@@ -35,7 +35,7 @@ class BaseCalculation {
 
             //if currentValue of the input Object is missing
             if(inputValue.currentValue === undefined) {
-                inputValue.currentValue =  expectedInput.defaultValue
+                inputValue.currentValue = expectedInput.defaultValue
             }
         })
 
