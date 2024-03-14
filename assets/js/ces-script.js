@@ -34,7 +34,6 @@ function populateCESResults(lang, ces_levels_labels) {
                 console.log("search param undefined")
                 $("#" + input.id).val(input.defaultValue)
             } else {
-                console.log("search param found")
                 $("#" + input.id).val(searchParams.get(input.id))
             }
         }
@@ -81,7 +80,7 @@ function populateCESResults(lang, ces_levels_labels) {
 
 
     $(".feedback").css("display", "none");
-    $(".feedback_" + calculationModule['ces_level']).css("display", "inline");
+    $("#feedback_" + calculationModule['ces_level']).css("display", "inline");
 
     updateBarChart(calculationModule, ces_levels)
 
@@ -95,13 +94,13 @@ function updateBarChart(calculationModule, ces_levels) {
     function updateCanvas(canvasId, options) {
         const canvas = document.getElementById(canvasId);
         const ctx = canvas.getContext('2d');
-
-        // Check if a chart instance is already associated with the canvas
-        if (canvas.chart) {
+    
+        // Check if a chart instance is already associated with the context
+        if (Chart.getChart(ctx)) {
             // Destroy the previous chart instance
-            canvas.chart.destroy();
+            Chart.getChart(ctx).destroy();
         }
-
+    
         // Clear the canvas
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         const myChart = new Chart(ctx, options);
@@ -182,6 +181,11 @@ function updateBarChart(calculationModule, ces_levels) {
 let form = document.getElementById("ces-form")
 
 form.addEventListener('submit', event => {
+
+    
+    event.preventDefault()
+    event.stopPropagation()
+
     form.classList.remove('was-validated')
 
     //Use bootstrap validation mecanism
@@ -196,8 +200,6 @@ form.addEventListener('submit', event => {
         }, 1000, data)
     }
 
-    event.preventDefault()
-    event.stopPropagation()
 })
 
 
