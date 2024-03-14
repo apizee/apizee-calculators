@@ -10,7 +10,6 @@
     {% include external_css.html %}
 
     <link rel="stylesheet" href="{{site.baseurl}}/assets/css/ces_style.css">
-
     <title>{{page.title}}</title>
 </head>
 
@@ -35,7 +34,7 @@
                                 <div class="input-group">
                                     <input type="number" class="form-control" id="total-no-level1"
                                         name="total-no-level1" placeholder="{{page.noLevel1Example}}"
-                                        aria-describedby="totalNoLevel1Help" value="" min="0" required>
+                                        aria-describedby="totalNoLevel1Help" value="" min="0">
                                     <div class="invalid-feedback">
                                         {{page.errorMsgGTZero}}
                                     </div>
@@ -48,7 +47,7 @@
                                 <div class="input-group">
                                     <input type="number" class="form-control" id="total-no-level2"
                                         name="total-no-level2" placeholder="{{page.noLevel2Example}}"
-                                        aria-describedby="totalNoLevel2Help" value="" min="0" required>
+                                        aria-describedby="totalNoLevel2Help" value="" min="0">
                                     <div class="invalid-feedback">
                                         {{page.errorMsgGTZero}}
                                     </div>
@@ -61,7 +60,7 @@
                                 <div class="input-group">
                                     <input type="number" class="form-control" id="total-no-level3"
                                         name="total-no-level3" placeholder="{{page.noLevel3Example}}"
-                                        aria-describedby="totalNoLevel3Help" value="" min="0" required>
+                                        aria-describedby="totalNoLevel3Help" value="" min="0">
                                     <div class="invalid-feedback">
                                         {{page.errorMsgGTZero}}
                                     </div>
@@ -74,7 +73,7 @@
                                 <div class="input-group">
                                     <input type="number" class="form-control" id="total-no-level4"
                                         name="total-no-level4" placeholder="{{page.noLevel4Example}}"
-                                        aria-describedby="totalNoLevel4Help" value="" min="0" required>
+                                        aria-describedby="totalNoLevel4Help" value="" min="0">
                                     <div class="invalid-feedback">
                                         {{page.errorMsgGTZero}}
                                     </div>
@@ -87,7 +86,7 @@
                                 <div class="input-group">
                                     <input type="number" class="form-control" id="total-no-level5"
                                         name="total-no-level5" placeholder="{{page.noLevel5Example}}"
-                                        aria-describedby="totalNoLevel5Help" value="" min="0" required>
+                                        aria-describedby="totalNoLevel5Help" value="" min="0">
                                     <div class="invalid-feedback">
                                         {{page.errorMsgGTZero}}
                                     </div>
@@ -95,7 +94,7 @@
                             </div>
                             <div>
 
-                            <button class="btn btn-primary btn-cta" type="submit">{{page.formButton}}</button>
+                                <button class="btn btn-primary btn-cta" type="submit">{{page.formButton}}</button>
 
                     </form>
                     <div id="error-message" class="mt-4 text-danger"></div>
@@ -108,15 +107,21 @@
                 <div class="row main-result m-3" id="result-ces-score">
                     <p class="result-section-title">{{page.ces_score_label}}</p>
                     <p class="result-value text-center ">
-                        <span class="value"><span class="generated" id="result_ces">25%</span>
-                        <span class="ces_level" id="smiley_good">{{page.smiley_good}}</span>
-                        <span class="ces_level" id="smiley_average">{{page.smiley_average}}</span>
-                        <span class="ces_level" id="smiley_bad">{{page.smiley_bad}}</span>
-                        <span class="ces_level" id="smiley_none"></span></span>
+                        <span class="value"><span class="generated" id="result_ces">-</span>
+                            <span class="ces_level" id="smiley_good">{{page.smiley_good}}</span>
+                            <span class="ces_level" id="smiley_average">{{page.smiley_average}}</span>
+                            <span class="ces_level" id="smiley_bad">{{page.smiley_bad}}</span>
+                            <span class="ces_level" id="smiley_none"></span></span>
                     </p>
                     <p class="result-section-title feedback" id="feedback_bad">{{page.feedback_bad}}</p>
                     <p class="result-section-title feedback" id="feedback_average">{{page.feedback_average}}</p>
                     <p class="result-section-title feedback" id="feedback_good">{{page.feedback_good}}</p>
+                </div>
+                <div class="row px-5 d-none d-md-block" id="stacked_bar">
+                    <canvas id="cesBarChart" height="50"></canvas>
+                </div>
+                <div class="row px-5 d-block d-md-none" id="pie_chart">
+                    <canvas id="cesPieChart" height="50"></canvas>
                 </div>
             </div>
 
@@ -128,13 +133,24 @@
     </div>
     {% include external_libs.html %}
 
-    <script src="{{site.baseurl}}/assets/js/ces-script.js" type="module"></script> 
+    <script src="{{site.baseurl}}/assets/js/ces-script.js" type="module"></script>
 
     <script>
         //Init on load
         window.addEventListener("load", (event) => {
-            window.populateCESResults('{{page.lang}}')
+
+            let I18n_labels = {
+               "total-no-level1" : '{{page.noLevel1Label}}',
+               "total-no-level2" : '{{page.noLevel2Label}}',
+               "total-no-level3" : '{{page.noLevel3Label}}',
+               "total-no-level4" : '{{page.noLevel4Label}}',
+               "total-no-level5" : '{{page.noLevel5Label}}',
+            }
+
+            window.populateCESResults('{{page.lang}}', I18n_labels)
+
         });
+        
 
     </script>
 </body>

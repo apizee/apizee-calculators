@@ -1,14 +1,20 @@
 import PostSender from "./post-sender-module.js";
 import CESCalculation from "./ces-calculation-module.js";
 
-let currentLanguage = ''
+let currentLanguage = 'en'
+let ces_levels = {}
 
-function populateCESResults(lang) {
+function populateCESResults(lang, ces_levels_labels) {
     'use strict'
 
-    if(lang !== undefined && lang !== null && lang !== ''){
+    if (lang !== undefined && lang !== null && lang !== '') {
         currentLanguage = lang
     }
+
+    if (ces_levels_labels !== undefined && ces_levels_labels !== null && ces_levels_labels !== '') {
+        ces_levels = ces_levels_labels
+    }
+
 
     let queryString = ""
 
@@ -27,7 +33,7 @@ function populateCESResults(lang) {
             if (!searchParams.has(input.id)) {
                 console.log("search param undefined")
                 $("#" + input.id).val(input.defaultValue)
-            }else{
+            } else {
                 console.log("search param found")
                 $("#" + input.id).val(searchParams.get(input.id))
             }
@@ -70,15 +76,106 @@ function populateCESResults(lang) {
     });
 
     // Initialize the CES level status
-    $(".ces_level").css("display","none");
-    $(".ces_level#smiley_"+calculationModule['ces_level']).css("display","inline");
+    $(".ces_level").css("display", "none");
+    $(".ces_level#smiley_" + calculationModule['ces_level']).css("display", "inline");
 
 
-    $(".feedback").css("display","none");
-    $(".feedback#"+calculationModule['ces_level']).css("display","inline");
+    $(".feedback").css("display", "none");
+    $(".feedback_" + calculationModule['ces_level']).css("display", "inline");
+
+    updateBarChart(calculationModule, ces_levels)
 
 
-    return {...collectedValuesFromDOM, ...calculationModule.values}
+    return { ...collectedValuesFromDOM, ...calculationModule.values }
+}
+
+function updateBarChart(calculationModule, ces_levels) {
+
+
+    function updateCanvas(canvasId, options) {
+        const canvas = document.getElementById(canvasId);
+        const ctx = canvas.getContext('2d');
+
+        // Check if a chart instance is already associated with the canvas
+        if (canvas.chart) {
+            // Destroy the previous chart instance
+            canvas.chart.destroy();
+        }
+
+        // Clear the canvas
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        const myChart = new Chart(ctx, options);
+    }
+
+    let bgColors = {
+        "total-no-level1": "#F1F5F8",
+        "total-no-level2": "#D3DEE9",
+        "total-no-level3": "#BBCCDD",
+        "total-no-level4": "#5079A0",
+        "total-no-level5": "#2E455C"
+    }
+    let datasetsBar = []
+
+    for (const id in bgColors) {
+
+        let value = {
+            label: ces_levels[id],
+            data: [calculationModule.values[id] / calculationModule.total_respondents * 100], // Percentage for Dataset 1
+            backgroundColor: bgColors[id],
+            barThickness: 10
+        }
+        datasetsBar.push(value)
+    }
+
+    let optionsBar = {
+        type: 'bar',
+        data: {
+            labels: ['CES'], // Add more labels for multiple bars
+            datasets: datasetsBar
+        },
+        options: {
+            indexAxis: 'y', // Makes the bar chart horizontal
+            scales: {
+                x: {
+                    stacked: true, // Enable stacking
+                    display: false,
+                    ticks: {
+                        callback: function (value) {
+                            return value + "%"; // Display percentages on x-axis
+                        }
+                    }
+                },
+                y: {
+                    stacked: true, // Enable stacking
+                    display: false
+                }
+            },
+            cutout: 0 // Make the pie chart a disc
+        }
+    };
+
+    let optionsPie =  {
+        type: 'pie',
+        data: {
+            labels: Object.values(ces_levels),
+            datasets: [{
+                data: Object.keys(ces_levels).map(key => { return calculationModule.values[key]/ calculationModule.total_respondents *100 }),
+                backgroundColor: Object.values(bgColors)
+            }]
+        },
+        options: {
+            plugins: {
+                legend: {
+                    display: true,
+                    position: 'top'
+                }
+            },
+            cutout: 0 // Set to 0 for a disc chart
+        }
+    }
+
+    updateCanvas('cesBarChart', optionsBar)
+    updateCanvas('cesPieChart', optionsPie)
 }
 
 // Event handler on form submit
@@ -90,13 +187,13 @@ form.addEventListener('submit', event => {
     //Use bootstrap validation mecanism
     if (form.checkValidity()) {
 
-       form.classList.add('was-validated')
-       let data = populateCESResults()
+        form.classList.add('was-validated')
+        let data = populateCESResults()
 
-       setTimeout((data) =>{
+        setTimeout((data) => {
             //const sender = new PostSender("https://hooks.zapier.com/hooks/catch/436453/3w9vkm6/")
             //sender.postData(data)
-       }, 1000, data)
+        }, 1000, data)
     }
 
     event.preventDefault()
